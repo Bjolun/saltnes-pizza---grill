@@ -5,4 +5,4 @@ from flask import Flask, render_template
 @app.route('/')
 def home():
 
-	return "Hei, dette funker!"
+	return render_template("menu.html")
