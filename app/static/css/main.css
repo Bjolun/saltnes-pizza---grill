@@ -1,0 +1,35 @@
+#bannerimg{
+  max-width: 100%;
+  height: auto;
+}
+
+#headerdiv{
+  background: url (../banner.png);
+}
+
+body{
+  font-family: 'Open Sans', sans-serif;
+}
+
+.navbar-custom {
+    background-color: #DB0000;
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    color: white;
+}
+
+footer {
+    background-color:#DB0000;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+#footertext{
+  color: white;
+}
+
+#fblogo{
+  height: 30px;
+}
