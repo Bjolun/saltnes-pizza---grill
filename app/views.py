@@ -1,5 +1,6 @@
 from app import app
 from flask import Flask, render_template
+from app.models import db, PizzaMenu, ThaiMenu, GrillMenu
 
 
 @app.route('/')
