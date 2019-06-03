@@ -11,6 +11,16 @@ body{
   font-family: 'Open Sans', sans-serif;
 }
 
+#header {
+  background: url('../banner.png');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+
+.header-logo {
+  width: 16rem;
+}
+
 .navbar-custom {
     background-color: #DB0000;
 }
