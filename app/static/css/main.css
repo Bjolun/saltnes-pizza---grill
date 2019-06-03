@@ -9,6 +9,8 @@
 
 body{
   font-family: 'Open Sans', sans-serif;
+  min-height: 400px;
+  margin-bottom: 100px;
 }
 
 #header {
@@ -58,7 +60,7 @@ body{
 
 footer {
     background-color:#DB0000;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
 }
