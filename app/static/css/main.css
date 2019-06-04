@@ -5,6 +5,10 @@ body{
   color: white;
 }
 
+#logobrand{
+  height: 40px;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -34,6 +38,13 @@ html {
 #thai {
   height: 750px;
   background: url(/static/thai.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#kontakt {
+  height: 750px;
+  background: url(/static/models.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
