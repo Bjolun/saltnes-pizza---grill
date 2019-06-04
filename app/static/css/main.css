@@ -2,13 +2,38 @@ body{
   font-family: 'Open Sans', sans-serif;
   min-height: 400px;
   margin-bottom: 100px;
+  color: white;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .masthead {
   height: 100vh;
   min-height: 500px;
-  background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
+  background-image: url(/static/headerphoto.jpg);
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+}
+
+#pizza {
+  height: 750px;
+  background: url(/static/pizza.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#grill {
+  height: 750px;
+  background: url(/static/grill.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#thai {
+  height: 750px;
+  background: url(/static/thai.jpg);
+  background-size: cover;
   background-repeat: no-repeat;
 }
