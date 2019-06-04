@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="no">
   <head>
     <meta charset="utf-8">
     <title>Saltnes Grill & Pizza</title>
@@ -11,44 +11,47 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div id="container">
-      <div class="row">
-        <div class="col-12" id="header" align="center">
-          <a href="{{url_for('home')}}">
-          <img src="{{url_for('static',filename='logo.png')}}" alt="saltnes logo" class="img-fluid header-logo mt-5 mb-5">
-          </a>
-        </div>
-      </div>
-      <nav class="navbar navbar-expand-lg navbar-custom">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="{{url_for('home')}}">FORSIDE</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Start Bootstrap</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{url_for('menu')}}">MENY</a>
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
             </li>
           </ul>
-      </nav>
-      {% block content %}
-      {% endblock %}
-      <br>
-      <footer>
-
-        <div class="row" align="center">
-          <div class="col-4" id="footertext">
-            <p>Grendehusveien 2,</p>
-            <p>1642 Saltnes</p>
-          </div>
-          <div class="col-4" id="footertext">
-            <p>Telefon:</p>
-            <p>69282383</p>
-          </div>
-          <div class="col-4" id="footertext">
-            <p>Følg oss på Facebook:</p>
-            <a href="https://www.facebook.com/saltnesgrillogpizza/"><img src="/static/facebook.png" id="fblogo"></a>
+        </div>
+      </div>
+    </nav>
+    <header class="masthead">
+      <div class="container h-100">
+        <div class="row h-100 align-items-center">
+          <div class="col-12 text-center">
+            <h1 class="font-weight-light">Vertically Centered Masthead Content</h1>
+            <p class="lead">A great starter layout for a landing page</p>
           </div>
         </div>
-      </footer>
-    </div>
+      </div>
+    </header>
+    <section class="py-5">
+      <div class="container">
+        <h2 class="font-weight-light">Page Content</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus ab nulla dolorum autem nisi officiis blanditiis voluptatem hic, assumenda aspernatur facere ipsam nemo ratione cumque magnam enim fugiat reprehenderit expedita.</p>
+      </div>
+    </section>
   </body>
 </html>

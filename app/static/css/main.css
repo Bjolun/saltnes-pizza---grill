@@ -1,79 +1,14 @@
-#bannerimg{
-  max-width: 100%;
-  height: auto;
-}
-
-#headerdiv{
-  background: url (../banner.png);
-}
-
 body{
   font-family: 'Open Sans', sans-serif;
   min-height: 400px;
   margin-bottom: 100px;
 }
 
-#header {
-  background: url('../banner.png');
+.masthead {
+  height: 100vh;
+  min-height: 500px;
+  background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: 100% auto;
-}
-
-.header-logo {
-  width: 16rem;
-}
-
-#h1_welcome{
-  font-size: 60px;
-}
-
-#descrip{
-  font-size: 20px;
-}
-
-.header-logo:hover {
-  -webkit-animation-name: see-through;
-  -webkit-animation-duration: 0.5s;
-  -webkit-animation-fill-mode: forwards;
-  animation-name: see-through;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes see-through {
-  from {opacity: 1;}
-  to {opacity: 0.7;}
-}
-
-@keyframes see-through {
-  from {opacity: 1;}
-  to {opacity: 0.7;}
-}
-
-.navbar-custom {
-    background-color: #DB0000;
-}
-
-.navbar-custom .navbar-nav .nav-link {
-    color: white;
-}
-
-footer {
-    background-color:#DB0000;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-#footertext{
-  color: white;
-  font-size: 20px;
-}
-
-a{
-  font-size: 20px;
-}
-
-#fblogo{
-  height: 40px;
 }
