@@ -1,7 +1,6 @@
 body{
   font-family: 'Open Sans', sans-serif;
   min-height: 400px;
-  margin-bottom: 100px;
   color: white;
 }
 
@@ -43,8 +42,12 @@ html {
 }
 
 #kontakt {
-  height: 750px;
+  height: 500px;
   background: url(/static/models.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+#descrip{
+  font-size: 20px;
 }
