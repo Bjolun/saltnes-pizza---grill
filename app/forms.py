@@ -23,5 +23,7 @@ class AddGrill(FlaskForm):
     name = StringField(u'Grillmat tittel: ',[validators.Required()])
     description = StringField(u'Hva inneholder Grillmaten? ',[validators.Required()])
     allergies = StringField(u'Allergier (i tall):',[validators.Required()])
-    price = StringField(u'Pris på grillmaten (stor): ')
+    price_small = StringField(u'Pris på grillmaten (liten): ')
+    price_medium = StringField(u'Pris på grillmaten (medium)')
+    price_large = StringField(u'Pris på grillmaten (stor)')
     submit = SubmitField('Legg til grillmat')

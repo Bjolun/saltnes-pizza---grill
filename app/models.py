@@ -40,10 +40,15 @@ class GrillMenu(db.Model):
     title = db.Column(db.String, unique=False)
     description = db.Column(db.String, unique=False)
     allergies = db.Column(db.String)
-    price = db.Column(db.String)
+    # Price for each size, if only one size then use "price_large"
+    price_small = db.Column(db.String)
+    price_medium = db.Column(db.String)
+    price_large = db.Column(db.String)
 
-    def __init__(self, title, description, allergies, price):
+    def __init__(self, title, description, allergies, price_small, price_medium, price_large):
         title = self.title
         description = self.description
         allergies = self.allergies
-        price = self.price
+        price_small = self.price_small
+        price_medium = self.price_medium
+        price_large = self.price_large
