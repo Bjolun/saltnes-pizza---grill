@@ -1,0 +1,53 @@
+/* Logo animation when on hover */
+
+#logobrand:hover {
+  -webkit-animation-name: see-through;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+  animation-name: see-through;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes see-through {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+@keyframes see-through {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+/* */
+
+/* Navbar item on hover */
+
+.nav-item a, .nav-item a:visited {
+  text-decoration: none;
+  position: relative;
+  color: grey;
+}
+.nav-item a:after, .nav-item a:visited:after {
+  content: '';
+  height: 3px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  background: grey;
+  transition: 0.2s;
+}
+.nav-item a:hover:after, .nav-item a:visited:hover:after {
+  width: 100%;
+}
+
+/* */
