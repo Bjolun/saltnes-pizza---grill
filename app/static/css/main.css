@@ -21,6 +21,10 @@ html {
   background-repeat: no-repeat;
 }
 
+.navbar-toggler {
+  border: none;
+}
+
 #pizza {
   height: 750px;
   background: url(/static/pizza.jpg);
