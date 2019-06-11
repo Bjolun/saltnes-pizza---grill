@@ -8,9 +8,11 @@ body{
   height: 40px;
 }
 
+/*
 html {
   scroll-behavior: smooth;
 }
+*/
 
 .masthead {
   height: 100vh;
@@ -26,32 +28,100 @@ html {
 }
 
 #pizza {
+  /*
   height: 750px;
   background: url(/static/pizza.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  */
+
+  height: 100vh;
+  min-height: 500px;
+  background-image: url(/static/pizza.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 #grill {
+  /*
   height: 750px;
   background: url(/static/grill.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  */
+
+  height: 100vh;
+  min-height: 500px;
+  background-image: url(/static/grill.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 #thai {
+  /*
   height: 750px;
   background: url(/static/thai.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  */
+  height: 100vh;
+  min-height: 500px;
+  background-image: url(/static/thai.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 #kontakt {
+  /*
   height: 500px;
   background: url(/static/models.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+*/
+
+  height: 65vh;
+  min-height: 350px;
+  background-image: url(/static/models.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Change the map to an address if the screen is to small to display the full map */
+
+#show_address{
+  display: none;
+}
+
+#show_map{
+    display: inline;
+}
+
+@media screen and (max-width: 350px) {
+  #show_address{
+    display: inline;
+  }
+
+  #show_map{
+    display: none;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  #kontakt {
+    background-image: url(/static/models.jpg);
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 #descrip{
   font-size: 20px;
+}
+
+#gmap{
+  margin-bottom: 20px;
 }
