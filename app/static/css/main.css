@@ -66,13 +66,16 @@ body{
     display: inline;
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 375px) {
   #show_address{
     display: inline;
   }
 
   #show_map{
     display: none;
+  }
+  .table {
+    font-size: 0.7rem;
   }
 }
 
