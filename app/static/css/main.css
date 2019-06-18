@@ -8,12 +8,6 @@ body{
   height: 40px;
 }
 
-/*
-html {
-  scroll-behavior: smooth;
-}
-*/
-
 .masthead {
   height: 100vh;
   min-height: 500px;
@@ -28,13 +22,6 @@ html {
 }
 
 #pizza {
-  /*
-  height: 750px;
-  background: url(/static/pizza.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  */
-
   height: 100vh;
   min-height: 500px;
   background-image: url(/static/pizza.jpg);
@@ -44,13 +31,6 @@ html {
 }
 
 #grill {
-  /*
-  height: 750px;
-  background: url(/static/grill.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  */
-
   height: 100vh;
   min-height: 500px;
   background-image: url(/static/grill.jpg);
@@ -59,12 +39,6 @@ html {
   background-repeat: no-repeat;
 }
 #thai {
-  /*
-  height: 750px;
-  background: url(/static/thai.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  */
   height: 100vh;
   min-height: 500px;
   background-image: url(/static/thai.jpg);
@@ -74,13 +48,6 @@ html {
 }
 
 #kontakt {
-  /*
-  height: 500px;
-  background: url(/static/models.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-*/
-
   height: 65vh;
   min-height: 350px;
   background-image: url(/static/models.jpg);

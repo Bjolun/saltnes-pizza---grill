@@ -3,12 +3,68 @@
 
 <div class="main" id="pizza">
 
+  <table class="table" style="color: white;">
+    <thead>
+      <tr>
+        <th scope="<col>">Navn</th>
+        <th scope="<col>">Ingredienser</th>
+        <th scope="<col>">Pris</th>
+      </tr>
+    </thead>
+    <tbody>
+        {%for pizza in pizzamenu%}
+      <tr>
+      <th scope="row"><b>{{pizza.id}}.{{pizza.title}}</b></th>
+      <td>{{pizza.description}}</td>
+      <td>{{pizza.price}}</td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
 </div>
 <div class="main" id="grill">
-  <p>kek</p>
+  <table class="table" style="color: white;">
+    <thead>
+      <tr>
+        <th scope="<col>">Navn</th>
+        <th scope="<col>">Ingredienser</th>
+        <th scope="<col>">Liten</th>
+        <th scope="<col>">Medium</th>
+        <th scope="<col>">Stor</th>
+      </tr>
+    </thead>
+    <tbody>
+        {%for grill in grillmenu%}
+      <tr>
+      <th scope="row"><b>{{grill.id}}.{{grill.title}}</b></th>
+      <td>{{grill.description}}</td>
+      <td>{{grill.price_small}}</td>
+      <td>{{grill.price_medium}}</td>
+      <td>{{grill.price_large}}</td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
 </div>
 <div class="main" id="thai">
-  <p>kek</p>
+  <table class="table" style="color: white;">
+    <thead>
+      <tr>
+        <th scope="<col>">Navn</th>
+        <th scope="<col>">Ingredienser</th>
+        <th scope="<col>">Pris</th>
+      </tr>
+    </thead>
+    <tbody>
+        {%for thai in thaimenu%}
+      <tr>
+      <th scope="row"><b>{{thai.id}}.{{thai.title}}</b></th>
+      <td>{{thai.description}}</td>
+      <td>{{thai.price}}</td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
 </div>
 <div class="main" id="kontakt">
   <div class="container">

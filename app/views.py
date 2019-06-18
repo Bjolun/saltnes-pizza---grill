@@ -6,8 +6,10 @@ from app.forms import AddPizza, AddThai, AddGrill
 
 @app.route('/')
 def home():
-
-	return render_template("index.html")
+	pizzamenu = PizzaMenu.query.all()
+	grillmenu = GrillMenu.query.all()
+	thaimenu = ThaiMenu.query.all()
+	return render_template("index.html", pizzamenu = pizzamenu, grillmenu = grillmenu, thaimenu = thaimenu)
 
 @app.route('/addpizza',methods=['GET','POST'])
 def addpizza():
@@ -47,7 +49,7 @@ def addthai():
 		new_pizza = ThaiMenu(title=name,description=description,allergies=allergies,price=price)
 		db.session.add(new_pizza)
 		db.session.commit()
-		
+
 		return redirect(url_for('add_confirm'))
 
 	return render_template('forms.html', form=form, title=title)
