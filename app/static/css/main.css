@@ -66,6 +66,10 @@ body{
     display: inline;
 }
 
+.menupadding{
+  padding-top: 65px;
+}
+
 @media screen and (max-width: 375px) {
   #show_address{
     display: inline;
