@@ -4,8 +4,12 @@ body{
   color: white;
 }
 
+.table {
+  font-family: Arial;
+}
+
 #logobrand{
-  height: 40px;
+  height: 60px;
 }
 
 .masthead {
@@ -48,8 +52,9 @@ body{
 }
 
 #kontakt {
-  height: 65vh;
+  height: 100%;
   min-height: 350px;
+  padding-bottom: 30px;
   background-image: url(/static/models.jpg);
   background-size: cover;
   background-position: center;
@@ -67,7 +72,13 @@ body{
 }
 
 .menupadding{
-  padding-top: 65px;
+  padding-top: 100px;
+}
+
+.title-style {
+  background-color: rgb(218,17,17);
+  font-family: Arial;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 375px) {
@@ -81,6 +92,10 @@ body{
   .table {
     font-size: 0.7rem;
   }
+  #pizza, #grill, #thai {
+    height: 100%;
+    padding-bottom: 50px;
+  }
 }
 
 
@@ -89,6 +104,10 @@ body{
     background-image: url(/static/models.jpg);
     max-width: 100%;
     height: auto;
+  }
+  #pizza, #grill, #thai {
+    height: 100%;
+    padding-bottom: 50px;
   }
 }
 

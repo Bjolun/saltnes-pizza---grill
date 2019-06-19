@@ -3,6 +3,7 @@
 
 <div class="main" id="pizza">
   <div class="container menupadding">
+    <h1 class="display-5 title-style">PIZZAMENY</h1>
     <table class="table" style="color: white;">
       <thead>
         <tr>
@@ -14,9 +15,9 @@
       <tbody>
           {%for pizza in pizzamenu%}
         <tr>
-        <th scope="row"><b>{{pizza.id}}.{{pizza.title}}</b></th>
-        <td>{{pizza.description}}</td>
-        <td>{{pizza.price}}</td>
+        <th scope="row"><b>{{pizza.id}}. {{pizza.title}}</b></th>
+        <td class="font-weight-bold">{{pizza.description}}</td>
+        <td class="font-weight-bold">{{pizza.price}},-</td>
         </tr>
         {%endfor%}
       </tbody>
@@ -25,6 +26,7 @@
 </div>
 <div class="main" id="grill">
   <div class="container menupadding">
+    <h1 class="display-5 title-style">GRILLMENY</h1>
     <table class="table" style="color: white;">
       <thead>
         <tr>
@@ -51,6 +53,7 @@
 </div>
 <div class="main" id="thai">
   <div class="container menupadding">
+    <h1 class="display-5 title-style">THAIMENY</h1>
     <table class="table" style="color: white;">
       <thead>
         <tr>
