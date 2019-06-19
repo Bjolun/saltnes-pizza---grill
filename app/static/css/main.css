@@ -26,8 +26,9 @@ body{
 }
 
 #pizza {
-  height: 100vh;
+  height: 100%;
   min-height: 500px;
+  padding-bottom: 50px;
   background-image: url(/static/pizza.jpg);
   background-size: cover;
   background-position: center;
@@ -35,16 +36,18 @@ body{
 }
 
 #grill {
-  height: 100vh;
+  height: 100%;
   min-height: 500px;
+  padding-bottom: 50px;
   background-image: url(/static/grill.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 #thai {
-  height: 100vh;
+  height: 100%;
   min-height: 500px;
+  padding-bottom: 50px;
   background-image: url(/static/thai.jpg);
   background-size: cover;
   background-position: center;
@@ -92,10 +95,6 @@ body{
   .table {
     font-size: 0.7rem;
   }
-  #pizza, #grill, #thai {
-    height: 100%;
-    padding-bottom: 50px;
-  }
 }
 
 
@@ -104,10 +103,6 @@ body{
     background-image: url(/static/models.jpg);
     max-width: 100%;
     height: auto;
-  }
-  #pizza, #grill, #thai {
-    height: 100%;
-    padding-bottom: 50px;
   }
 }
 
