@@ -84,7 +84,13 @@ body{
   font-weight: bold;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 420px) {
+  .table {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
   #show_address{
     display: inline;
   }
@@ -93,7 +99,7 @@ body{
     display: none;
   }
   .table {
-    font-size: 0.7rem;
+    font-size: 0.53rem;
   }
 }
 

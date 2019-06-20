@@ -10,8 +10,10 @@
     <link rel="stylesheet" href="{{url_for('static', filename ='css/main.css')}}" type="text/css">
     <link rel="stylesheet" href="{{url_for('static', filename ='css/animation.css')}}" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/static/icon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/static/icon/favicon-16x16.png" sizes="16x16" />
 
-<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
@@ -23,16 +25,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a  data-scroll class="nav-link" href="#pizza">Pizza</a>
+              <a data-toggle="collapse" data-target=".navbar-collapse.show"  data-scroll class="nav-link" href="#pizza">Pizza</a>
             </li>
             <li class="nav-item">
-              <a  data-scroll class="nav-link" href="#grill">Grill</a>
+              <a data-toggle="collapse" data-target=".navbar-collapse.show" data-scroll class="nav-link" href="#grill">Grill</a>
             </li>
             <li class="nav-item">
-              <a  data-scroll class="nav-link" href="#thai">Thai</a>
+              <a data-toggle="collapse" data-target=".navbar-collapse.show" data-scroll class="nav-link" href="#thai">Thai</a>
             </li>
             <li class="nav-item">
-              <a  data-scroll class="nav-link" href="#kontakt">Kontakt</a>
+              <a data-toggle="collapse" data-target=".navbar-collapse.show" data-scroll class="nav-link" href="#kontakt">Kontakt</a>
             </li>
           </ul>
         </div>
