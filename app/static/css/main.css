@@ -29,7 +29,7 @@ body{
   height: 100%;
   min-height: 500px;
   padding-bottom: 50px;
-  background-image: url(/static/pizza.jpg);
+  background-image: url(/static/pizza-doodle.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -39,7 +39,7 @@ body{
   height: 100%;
   min-height: 500px;
   padding-bottom: 50px;
-  background-image: url(/static/grill.jpg);
+  background-image: url(/static/grill-doodle.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -48,7 +48,7 @@ body{
   height: 100%;
   min-height: 500px;
   padding-bottom: 50px;
-  background-image: url(/static/thai.jpg);
+  background-image: url(/static/thai-doodle.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
