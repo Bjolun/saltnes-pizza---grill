@@ -25,16 +25,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a data-toggle="collapse" data-target=".navbar-collapse.show"  data-scroll class="nav-link" href="#pizza">Pizza</a>
+              <a data-scroll class="nav-link" href="#pizza">Pizza</a>
             </li>
             <li class="nav-item">
-              <a data-toggle="collapse" data-target=".navbar-collapse.show" data-scroll class="nav-link" href="#grill">Grill</a>
+              <a data-scroll class="nav-link" href="#grill">Grill</a>
             </li>
             <li class="nav-item">
-              <a data-toggle="collapse" data-target=".navbar-collapse.show" data-scroll class="nav-link" href="#thai">Thai</a>
+              <a data-scroll class="nav-link" href="#thai">Thai</a>
             </li>
             <li class="nav-item">
-              <a data-toggle="collapse" data-target=".navbar-collapse.show" data-scroll class="nav-link" href="#kontakt">Kontakt</a>
+              <a data-scroll class="nav-link" href="#kontakt">Kontakt</a>
             </li>
           </ul>
         </div>
@@ -56,4 +56,9 @@
     	var scroll = new SmoothScroll('a[href*="#"]');
     </script>
   </body>
+  <script type="text/javascript">
+  $('.navbar-nav>li>a').on('click', function(){
+    $('.navbar-collapse').collapse('hide');
+  });
+  </script>
 </html>
