@@ -20,12 +20,13 @@ def addpizza():
 
 	if form.validate_on_submit():
 
+		id = int(form.id.data)
 		name = form.name.data
 		session['item'] = form.name.data
 		description = form.description.data
 		allergies = form.allergies.data
 		price = form.price.data
-		new_pizza = PizzaMenu(title=name,description=description,allergies=allergies,price=price)
+		new_pizza = PizzaMenu(id=id,title=name,description=description,allergies=allergies,price=price)
 		db.session.add(new_pizza)
 		db.session.commit()
 
@@ -41,12 +42,14 @@ def addthai():
 	form = AddThai()
 
 	if form.validate_on_submit():
+
+		id = int(form.id.data)
 		name = form.name.data
 		session['item'] = form.name.data
 		description = form.description.data
 		allergies = form.allergies.data
 		price = form.price.data
-		new_pizza = ThaiMenu(title=name,description=description,allergies=allergies,price=price)
+		new_pizza = ThaiMenu(id=id,title=name,description=description,allergies=allergies,price=price)
 		db.session.add(new_pizza)
 		db.session.commit()
 
@@ -62,6 +65,8 @@ def addgrill():
 	form = AddGrill()
 
 	if form.validate_on_submit():
+
+		id = int(form.id.data)
 		name = form.name.data
 		session['item'] = form.name.data
 		description = form.description.data
@@ -69,7 +74,7 @@ def addgrill():
 		price_small = form.price_small.data
 		price_medium = form.price_medium.data
 		price_large = form.price_large.data
-		new_pizza = GrillMenu(title=name,description=description,allergies=allergies,price_small=price_small,price_medium=price_medium,price_large=price_large)
+		new_pizza = GrillMenu(id=id,title=name,description=description,allergies=allergies,price_small=price_small,price_medium=price_medium,price_large=price_large)
 		db.session.add(new_pizza)
 		db.session.commit()
 

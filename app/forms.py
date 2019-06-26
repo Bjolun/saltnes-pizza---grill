@@ -4,6 +4,7 @@ from wtforms import validators
 
 class AddPizza(FlaskForm):
 
+    id = IntegerField(u'Hvilken id har matretten? ',[validators.Required()])
     name = StringField(u'Pizza tittel: ',[validators.Required()])
     description = StringField(u'Hva inneholder Pizzaen? ',[validators.Required()])
     allergies = StringField(u'Allergier (i tall):',[validators.Required()])
@@ -12,6 +13,7 @@ class AddPizza(FlaskForm):
 
 class AddThai(FlaskForm):
 
+    id = IntegerField(u'Hvilken id har matretten? ',[validators.Required()])
     name = StringField(u'Thaimat tittel: ',[validators.Required()])
     description = StringField(u'Hva inneholder Thaimaten? ',[validators.Required()])
     allergies = StringField(u'Allergier (i tall):',[validators.Required()])
@@ -20,6 +22,7 @@ class AddThai(FlaskForm):
 
 class AddGrill(FlaskForm):
 
+    id = IntegerField(u'Hvilken id har matretten? ',[validators.Required()])
     name = StringField(u'Grillmat tittel: ',[validators.Required()])
     description = StringField(u'Hva inneholder Grillmaten? ',[validators.Required()])
     allergies = StringField(u'Allergier (i tall):',[validators.Required()])

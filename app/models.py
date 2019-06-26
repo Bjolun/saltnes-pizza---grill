@@ -10,7 +10,8 @@ class PizzaMenu(db.Model):
     allergies = db.Column(db.String)
     price = db.Column(db.String)
 
-    def __init__(self, title, description, allergies, price):
+    def __init__(self, id, title, description, allergies, price):
+        self.id = id
         self.title = title
         self.description = description
         self.allergies = allergies
@@ -26,7 +27,8 @@ class ThaiMenu(db.Model):
     allergies = db.Column(db.String)
     price = db.Column(db.String)
 
-    def __init__(self, title, description, allergies, price):
+    def __init__(self, id, title, description, allergies, price):
+        self.id = id
         self.title = title
         self.description = description
         self.allergies = allergies
@@ -45,7 +47,8 @@ class GrillMenu(db.Model):
     price_medium = db.Column(db.String)
     price_large = db.Column(db.String)
 
-    def __init__(self, title, description, allergies, price_small, price_medium, price_large):
+    def __init__(self, id, title, description, allergies, price_small, price_medium, price_large):
+        self.id = id
         self.title = title
         self.description = description
         self.allergies = allergies

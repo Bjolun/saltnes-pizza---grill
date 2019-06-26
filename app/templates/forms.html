@@ -38,6 +38,8 @@
         <div class="col-12">
           <form class="text-dark form-group" method="post">
             {{ form.hidden_tag() }}
+            {{ form.id.label(class="'font-weight-bold")}}
+            {{ form.id(class="form-control")}}
             {{ form.name.label(class='font-weight-bold') }}
             {{ form.name(class='form-control') }}
             <br>
