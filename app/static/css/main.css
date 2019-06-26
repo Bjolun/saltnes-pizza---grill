@@ -121,6 +121,11 @@ body{
   font-size: 20px;
 }
 
+#credit_self{
+  text-align: center;
+  font-size: 14px;
+}
+
 #gmap{
   margin-bottom: 20px;
 }
