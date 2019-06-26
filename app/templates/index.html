@@ -3,11 +3,11 @@
 
 <div class="main" id="pizza">
   <div class="container menupadding" align="center">
-    <img src="{{url_for('static',filename='pizza-icon.png')}}" alt="" class="mb-5">
+    <img src="{{url_for('static',filename='pizza-icon.png')}}" alt="" class="mb-5 img-fluid">
     <!-- <h1 class="display-5 title-style">PIZZAMENY</h1> -->
     <table class="table" style="color: white;">
       <thead>
-        <tr>
+        <tr align="left">
           <th scope="<col>">Navn</th>
           <th scope="<col>">Ingredienser</th>
           <th scope="<col>">Pris</th>
@@ -15,7 +15,7 @@
       </thead>
       <tbody>
           {%for pizza in pizzamenu%}
-        <tr>
+        <tr align="left">
         <th scope="row"><b>{{pizza.id}}. {{pizza.title}}</b></th>
         <td class="font-weight-bold">{{pizza.description}}</td>
         <td class="font-weight-bold">{{pizza.price}},-</td>
@@ -27,11 +27,11 @@
 </div>
 <div class="main" id="grill">
   <div class="container menupadding" align="center">
-    <img src="{{url_for('static',filename='grill-icon.png')}}" alt="" class="mb-5">
+    <img src="{{url_for('static',filename='grill-icon.png')}}" alt="" class="mb-5 img-fluid">
     <!-- <h1 class="display-5 title-style">GRILLMENY</h1> -->
     <table class="table" style="color: white;">
       <thead>
-        <tr>
+        <tr align="left">
           <th scope="<col>">Navn</th>
           <th scope="<col>">Info</th>
           <th scope="<col>">L</th>
@@ -41,7 +41,7 @@
       </thead>
       <tbody>
           {%for grill in grillmenu%}
-        <tr>
+        <tr align="left">
         <th scope="row"><b>{{grill.id}}. {{grill.title}}</b></th>
         <td>{{grill.description}}</td>
         <td>{{grill.price_small}}</td>
@@ -55,11 +55,11 @@
 </div>
 <div class="main" id="thai">
   <div class="container menupadding" align="center">
-    <img src="{{url_for('static',filename='thai-icon.png')}}" alt="" class="mb-5">
+    <img src="{{url_for('static',filename='thai-icon.png')}}" alt="" class="mb-5 img-fluid">
     <!-- <h1 class="display-5 title-style">THAIMENY</h1> -->
     <table class="table" style="color: white;">
       <thead>
-        <tr>
+        <tr align="left">
           <th scope="<col>">Navn</th>
           <th scope="<col>">Ingredienser</th>
           <th scope="<col>">Pris</th>
@@ -67,8 +67,8 @@
       </thead>
       <tbody>
           {%for thai in thaimenu%}
-        <tr>
-        <th scope="row"><b>{{thai.id}}.{{thai.title}}</b></th>
+        <tr align="left">
+        <th scope="row"><b>{{thai.id}}. {{thai.title}}</b></th>
         <td>{{thai.description}}</td>
         <td>{{thai.price}}</td>
         </tr>
