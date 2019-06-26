@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
+from wtforms import StringField, SubmitField, IntegerField
 from wtforms import validators
 
 class AddPizza(FlaskForm):
@@ -27,3 +27,8 @@ class AddGrill(FlaskForm):
     price_medium = StringField(u'Pris på grillmaten (medium)')
     price_large = StringField(u'Pris på grillmaten (stor)')
     submit = SubmitField('Legg til grillmat')
+
+class DeleteFood(FlaskForm):
+
+    idDel = IntegerField(u'Id-Nummer på retten du vil slette.',[validators.Required()])
+    submit = SubmitField('Slett')

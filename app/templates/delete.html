@@ -20,49 +20,28 @@
           </a>
         </div>
       </div>
+      <div class="row mt-5">
+        <div class="col-12">
+          <form class="" action="{{url_for('add_confirm')}}" method="post">
+            <input type="submit" class="btn btn-warning" value="Tilbake">
+          </form>
+        </div>
+      </div>
       <div class="row">
         <div class="col-12" align="center">
-          <hr>
-          {% if session['item'] %}
-          <h2 class="text-dark font-weight-bold">{{ session['item'] }} ble lagt til i menyen!</h2>
-          {{ session.clear() }}
-          {% else %}
-          <h2 class="text-dark font-weight-bold">Legg til i menyen</h2>
-          {% endif %}
+          <hr class="mt-5">
+          <h2 class="text-dark font-weight-bold">{{ title }}</h2>
           <hr>
         </div>
       </div>
       <div class="row">
-        <div class="col-4" align="center">
-          <form class="form-group" action="{{url_for('addpizza')}}">
-            <input type="submit" class="btn btn-warning" value="Legg til pizza">
-          </form>
-        </div>
-        <div class="col-4" align="center">
-          <form class="form-group" action="{{url_for('addthai')}}">
-            <input type="submit" class="btn btn-warning" value="Legg til thaimat">
-          </form>
-        </div>
-        <div class="col-4" align="center">
-          <form class="form-group" action="{{url_for('addgrill')}}">
-            <input type="submit" class="btn btn-warning" value="Legg til grillmat">
-          </form>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-4" align="center">
-          <form class="form-group" action="{{url_for('delete_pizza')}}">
-            <input type="submit" class="btn btn-warning" value="Slett en pizza">
-          </form>
-        </div>
-        <div class="col-4" align="center">
-          <form class="form-group" action="{{url_for('delete_thai')}}">
-            <input type="submit" class="btn btn-warning" value="Slett thaimat">
-          </form>
-        </div>
-        <div class="col-4" align="center">
-          <form class="form-group" action="{{url_for('delete_grill')}}">
-            <input type="submit" class="btn btn-warning" value="Slett grillmat">
+        <div class="col-12">
+          <form class="text-dark form-group" method="post">
+            {{ form.hidden_tag() }}
+            {{ form.idDel.label(class='font-weight-bold') }}
+            {{ form.idDel(class='form-control') }}
+            <br>
+            {{ form.submit(class='btn btn-warning') }}
           </form>
         </div>
       </div>

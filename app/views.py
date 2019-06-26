@@ -1,7 +1,7 @@
 from app import app, db
 from flask import Flask, render_template, flash, session, redirect, url_for
 from app.models import PizzaMenu, ThaiMenu, GrillMenu
-from app.forms import AddPizza, AddThai, AddGrill
+from app.forms import AddPizza, AddThai, AddGrill, DeleteFood
 
 
 @app.route('/')
@@ -81,3 +81,57 @@ def addgrill():
 def add_confirm():
 
 	return render_template('confirm.html')
+
+@app.route('/deletepizza',methods=['GET','POST'])
+def delete_pizza():
+
+	title = "Slett Pizza"
+
+	form = DeleteFood()
+
+	if form.validate_on_submit():
+		id = form.idDel.data
+		delete = PizzaMenu.query.get(id)
+
+		db.session.delete(delete)
+		db.session.commit()
+
+		return redirect(url_for('add_confirm'))
+
+	return render_template('delete.html', form=form, title=title)
+
+@app.route('/deletethai',methods=['GET','POST'])
+def delete_thai():
+
+	title = "Slett Thaimat"
+
+	form = DeleteFood()
+
+	if form.validate_on_submit():
+		id = form.idDel.data
+		delete = ThaiMenu.query.get(id)
+
+		db.session.delete(delete)
+		db.session.commit()
+
+		return redirect(url_for('add_confirm'))
+
+	return render_template('delete.html', form=form, title=title)
+
+@app.route('/deletegrill',methods=['GET','POST'])
+def delete_grill():
+
+	title = "Slett Grillmat"
+
+	form = DeleteFood()
+
+	if form.validate_on_submit():
+		id = form.idDel.data
+		delete = GrillMenu.query.get(id)
+
+		db.session.delete(delete)
+		db.session.commit()
+
+		return redirect(url_for('add_confirm'))
+
+	return render_template('delete.html', form=form, title=title)
