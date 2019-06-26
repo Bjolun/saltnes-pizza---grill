@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="row">
+      <div class="row mb-5">
         <div class="col-12" align="center">
           <a href="{{url_for('home')}}">
             <img src="{{url_for('static',filename='logo.png')}}" alt="logo" class="mt-5" style="height: 10vh;" id="logobrand">
@@ -27,9 +27,8 @@
           <h2 class="text-dark font-weight-bold">{{ session['item'] }} ble lagt til i menyen!</h2>
           {{ session.clear() }}
           {% else %}
-          <h2 class="text-dark font-weight-bold">Legg til i menyen</h2>
+          <h2 class="text-dark font-weight-bold mb-5">Legg til i menyen</h2>
           {% endif %}
-          <hr>
         </div>
       </div>
       <div class="row">
@@ -49,6 +48,47 @@
           </form>
         </div>
       </div>
+      <hr>
+      <div class="row mt-5">
+        <div class="col-12" align="center">
+          <hr>
+          {% if session['item'] %}
+          <h2 class="text-dark font-weight-bold">{{ session['item'] }} ble lagt til i menyen!</h2>
+          {{ session.clear() }}
+          {% else %}
+          <h2 class="text-dark font-weight-bold mb-5">Endre rett på menyen</h2>
+          {% endif %}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4" align="center">
+          <form class="form-group" action="">
+            <input type="submit" class="btn btn-warning" value="Endre på en pizza">
+          </form>
+        </div>
+        <div class="col-4" align="center">
+          <form class="form-group" action="">
+            <input type="submit" class="btn btn-warning" value="Endre på en thaimat">
+          </form>
+        </div>
+        <div class="col-4" align="center">
+          <form class="form-group" action="">
+            <input type="submit" class="btn btn-warning" value="Endre på en grillmat">
+          </form>
+        </div>
+      </div>
+      <hr>
+      <div class="row mt-5">
+        <div class="col-12" align="center">
+          <hr>
+          {% if session['item'] %}
+          <h2 class="text-dark font-weight-bold">{{ session['item'] }} ble lagt til i menyen!</h2>
+          {{ session.clear() }}
+          {% else %}
+          <h2 class="text-dark font-weight-bold mb-5">Slett fra menyen</h2>
+          {% endif %}
+        </div>
+      </div>
       <div class="row">
         <div class="col-4" align="center">
           <form class="form-group" action="{{url_for('delete_pizza')}}">
@@ -66,6 +106,7 @@
           </form>
         </div>
       </div>
+      <hr>
     </div>
   </body>
 </html>
