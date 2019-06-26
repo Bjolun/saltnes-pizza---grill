@@ -17,8 +17,8 @@
           {%for pizza in pizzamenu%}
         <tr align="left">
         <th scope="row"><b>{{pizza.id}}. {{pizza.title}}</b></th>
-        <td class="font-weight-bold">{{pizza.description}}</td>
-        <td class="font-weight-bold">{{pizza.price}},-</td>
+        <td>{{pizza.description}}</td>
+        <td>{{pizza.price}},-</td>
         </tr>
         {%endfor%}
       </tbody>
