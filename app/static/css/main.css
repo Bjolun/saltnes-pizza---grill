@@ -121,13 +121,18 @@ body{
   font-size: 20px;
 }
 
-#credit_self{
+.credit_self{
   text-align: center;
   font-size: 14px;
 }
 
-a{
+.credit_self a{
   color: white;
+}
+
+.credit_self a:hover{
+  text-decoration: underline;
+  color: lightgrey;
 }
 
 #gmap{
