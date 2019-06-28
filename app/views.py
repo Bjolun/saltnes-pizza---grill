@@ -1,7 +1,7 @@
 from app import app, db
 from flask import Flask, render_template, flash, session, redirect, url_for
 from app.models import PizzaMenu, ThaiMenu, GrillMenu
-from app.forms import AddPizza, AddThai, AddGrill, DeleteFood
+from app.forms import AddPizza, AddThai, AddGrill, DeleteFood, EditPizza
 
 
 @app.route('/')
@@ -140,3 +140,30 @@ def delete_grill():
 		return redirect(url_for('add_confirm'))
 
 	return render_template('delete.html', form=form, title=title)
+
+@app.route('/editpizza', methods=['GET', 'POST'])
+def edit_pizza():
+
+	title = "Endre pizza"
+
+	form = EditPizza()
+
+	if form.validate_on_submit():
+		id = form.id.data
+
+		if form.name.data != "":
+			db.session.query(PizzaMenu).filter(PizzaMenu.id == id).update({'title': form.name.data})
+			db.session.commit()
+
+		if form.description.data != "":
+			db.session.query(PizzaMenu).filter(PizzaMenu.id == id).update({'description': form.description.data})
+			db.session.commit()
+
+		if form.price.data != "":
+			db.session.query(PizzaMenu).filter(PizzaMenu.id == id).update({'price': form.price.data})
+			db.session.commit()
+
+		return redirect(url_for('add_confirm'))
+
+
+	return render_template('editpizza.html', form = form, title = title)
