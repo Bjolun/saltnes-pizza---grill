@@ -126,6 +126,10 @@ body{
   font-size: 14px;
 }
 
+a{
+  color: white;
+}
+
 #gmap{
   margin-bottom: 20px;
 }
