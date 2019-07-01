@@ -36,10 +36,21 @@ class DeleteFood(FlaskForm):
     idDel = IntegerField(u'Id-Nummer på retten du vil slette.',[validators.Required()])
     submit = SubmitField('Slett')
 
-class EditPizza(FlaskForm):
+class EditPizzaAndThai(FlaskForm):
 
     id = IntegerField(u'Hvilken pizza vil du endre på? Id-nummer(Obligatorisk):', [validators.Required()])
     name = StringField(u'Nytt Navn')
     description = StringField(u'Endre beskrivelse')
     price = StringField(u'Endre pris')
+    submit = SubmitField('Lagre endringer')
+
+
+class EditGrill(FlaskForm):
+
+    id = IntegerField(u'Hvilken rett vil du endre på? Id-nummer(Obligatorisk)', [validators.Required()])
+    name = StringField(u'Nytt navn')
+    description = StringField(u'Endre beskrivelse')
+    price_small = StringField(u'Endre pris på liten rett')
+    price_medium = StringField(u'Endre pris på medium rett')
+    price_large = StringField(u'Endre pris på stor rett')
     submit = SubmitField('Lagre endringer')
