@@ -11,21 +11,34 @@
       <link rel="stylesheet" href="{{url_for('static', filename ='css/main.css')}}" type="text/css">
       <link rel="stylesheet" href="{{url_for('static', filename ='css/animation.css')}}" type="text/css">
       <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+      <style>
+        .card {
+          box-shadow: 0px 30px 30px #999999;
+        }
+      </style>
     </head>
   </head>
   <body>
     <div class="container">
-      <div class="row mb-5">
-        <div class="col-12" align="center">
-          <a href="{{url_for('home')}}">
-            <img src="{{url_for('static',filename='logo.png')}}" alt="logo" class="mt-5" style="height: 10vh;" id="logobrand">
-          </a>
+      <div class="row" align="center">
+        <div class="col-12">
+          <div class="card m-5" style="width: 30rem;">
+            <img src="{{url_for('static',filename='logo.png')}}" alt="logo" class="mt-5 mb-5" style="width:30vh;">
+            <div class="card-body">
+              <h2 class="card-title text-dark font-weight-bold" align="center">Logg inn</h2>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item text-dark font-weight-bold" align="left">Brukernavn:<br>
+                <input type="form" class="form-control"></input></li>
+                <li class="list-group-item text-dark font-weight-bold" align="left">Passord:<br>
+                  <input type="password" class="form-control"></input></li>
+                </ul>
+                <div class="card-body">
+                  <input type="submit" class="btn btn-primary btn-block" value="Logg inn"></input>
+                </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row justify-content-center">
-        <h1 class="display-1">Logg inn</h1>
-        <hr>
-      </div>
-    </div>
-  </body>
-</html>
+    </body>
+  </html>
