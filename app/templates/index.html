@@ -21,8 +21,22 @@
         <td>{{pizza.price}},-</td>
         </tr>
         {%endfor%}
+        <p id="descrip_pizza"><b>Alle pizzaer er laget med våre egne bunner, vår egen saus og vår egen osteblanding!</b></p>
       </tbody>
     </table>
+    <div class="container">
+      <img src="{{url_for('static',filename='tilbehorlogo.png')}}" class="mb-3 img-fluid" id="tilbehorlogostyle">
+      <div class="row">
+        <div class="col-6">
+          <p id="descrip_extras" align="right"><b>Rød saus: 20,-</b></p>
+          <p id="descrip_extras" align="right"><b>Hvit saus: 25,-</b></p>
+        </div>
+        <div class="col-6">
+          <p id="descrip_extras" align="left"><b>Ekstra kjøtt: 35,-</b></p>
+          <p id="descrip_extras" align="left"><b>Ekstra ost: 35,-</b></p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <div class="main" id="grill">
@@ -66,7 +80,8 @@
         </tr>
       </thead>
       <tbody>
-          {%for thai in thaimenu%}
+        <p id="descrip_extras">Kan bestilles med mer kjøtt for 35,- ekstra!</p>
+        {%for thai in thaimenu%}
         <tr align="left">
         <th scope="row"><b>{{thai.id}}. {{thai.title}}</b></th>
         <td>{{thai.description}}</td>
@@ -109,10 +124,10 @@
   <br>
   <div class="row">
     <div class="col-12">
-      <p class="credit_self">Made with ❤️ by Emil Gabrielli & Bjørn Arild Lunde<br>
+      <p class="credit_self" align="center">Made with ❤️ by Emil Gabrielli & Bjørn Arild Lunde<br>
        Contact: E-post@mail.no & E-post@mail.no</p>
        <br>
-      <p class="credit_self"><a href="https://www.freepik.com/free-photos-vectors/food">Food vector created by freepik - www.freepik.com</a><br>
+      <p class="credit_self" align="center"><a href="https://www.freepik.com/free-photos-vectors/food">Food vector created by freepik - www.freepik.com</a><br>
       <a href="https://www.freepik.com/free-photos-vectors/background">Background vector created by freepik - www.freepik.com</a><br></p>
     </div>
   </div>

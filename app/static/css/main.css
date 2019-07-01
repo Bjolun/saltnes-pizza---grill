@@ -83,6 +83,10 @@ body{
   padding-top: 100px;
 }
 
+#tilbehorlogostyle{
+  height: 5vh;
+}
+
 .title-style {
   background-color: rgb(218,17,17);
   font-family: Arial;
@@ -91,6 +95,10 @@ body{
 
 @media screen and (max-width: 420px) {
   .table {
+    font-size: 0.7rem;
+  }
+
+  #descrip_pizza{
     font-size: 0.7rem;
   }
 }
@@ -120,6 +128,12 @@ body{
 #descrip{
   font-size: 20px;
 }
+
+#descrip_extras{
+  font-size: 0.9rem;
+}
+}
+
 
 .credit_self{
   text-align: center;
