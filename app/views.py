@@ -234,6 +234,19 @@ def login():
 
 	form = LoginForm()
 
+	if form.validate_on_submit():
+
+		brukernavn = form.brukernavn.data
+		passord = form.passord.data
+
+		bruker = Users.query.filter_by(brukernavn=brukernavn).first()
+
+		if not bruker:
+			flash('Feil brukernavn eller passord')
+			return redirect(url_for('login'))
+
+		return redirect(url_for('add_confirm'))
+
 	return render_template('login.html', form=form)
 
 @app.route('/signup', methods=['GET', 'POST'])
