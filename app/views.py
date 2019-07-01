@@ -1,7 +1,7 @@
 from app import app, db
 from flask import Flask, render_template, flash, session, redirect, url_for
-from app.models import PizzaMenu, ThaiMenu, GrillMenu
-from app.forms import AddPizza, AddThai, AddGrill, DeleteFood, EditPizzaAndThai, EditGrill
+from app.models import PizzaMenu, ThaiMenu, GrillMenu, Users
+from app.forms import AddPizza, AddThai, AddGrill, DeleteFood, EditPizzaAndThai, EditGrill, LoginForm, SignupForm
 
 
 @app.route('/')
@@ -231,4 +231,25 @@ def edit_grill():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-	return render_template('login.html')
+
+	form = LoginForm()
+
+	return render_template('login.html', form=form)
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+
+	form = SignupForm()
+
+	if form.validate_on_submit():
+
+		brukernavn = form.brukernavn.data
+		passord = form.passord.data
+
+		new_user = Users(brukernavn=brukernavn, passord=passord)
+		db.session.add(new_user)
+		db.session.commit()
+
+		return redirect(url_for('home'))
+
+	return render_template('signup.html', form=form)

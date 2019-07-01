@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, IntegerField
+from wtforms import StringField, SubmitField, IntegerField, PasswordField
 from wtforms import validators
 
 class AddPizza(FlaskForm):
@@ -54,3 +54,15 @@ class EditGrill(FlaskForm):
     price_medium = StringField(u'Endre pris på medium rett (Bruk mellomrom for å fjerne nåværende pris)')
     price_large = StringField(u'Endre pris på stor rett (Bruk mellomrom for å fjerne nåværende pris)')
     submit = SubmitField('Lagre endringer')
+
+class LoginForm(FlaskForm):
+
+    brukernavn = StringField(u'Brukernavn: ', [validators.Required()])
+    passord = PasswordField(u'Passord: ', [validators.Required()])
+    submit = SubmitField('Logg inn')
+
+class SignupForm(FlaskForm):
+
+    brukernavn = StringField(u'Brukernavn: ', [validators.Required()])
+    passord = PasswordField(u'Passord: ', [validators.Required()])
+    submit = SubmitField('Lag bruker')

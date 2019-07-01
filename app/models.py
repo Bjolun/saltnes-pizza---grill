@@ -55,3 +55,15 @@ class GrillMenu(db.Model):
         self.price_small = price_small
         self.price_medium = price_medium
         self.price_large = price_large
+
+class Users(db.Model):
+
+    __tablename__ = "brukere"
+
+    id = db.Column(db.Integer, primary_key=True)
+    brukernavn = db.Column(db.String(18), unique=True)
+    passord = db.Column(db.String(100), unique=False)
+
+    def __init__(self, brukernavn, passord):
+        self.brukernavn = brukernavn
+        self.passord = passord

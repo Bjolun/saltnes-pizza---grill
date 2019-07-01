@@ -25,19 +25,22 @@
           <div class="card m-5" style="width: 30rem;">
             <img src="{{url_for('static',filename='logo.png')}}" alt="logo" class="mt-5 mb-5" style="width:30vh;">
             <div class="card-body">
-              <h2 class="card-title text-dark font-weight-bold" align="center">Logg inn</h2>
+              <h2 class="card-title text-dark font-weight-bold" align="center">Lag en bruker</h2>
+              <hr>
+              <p>Lag en bruker med å skriver brukernavn og passord</p>
             </div>
-            <form class="text-dark form-group" method="POST">
-              {{ form.hidden_tag() }}
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item text-dark font-weight-bold" align="left">{{ form.brukernavn.label }}<br>
-                  {{ form.brukernavn(class="form-control") }}</li>
-                <li class="list-group-item text-dark font-weight-bold" align="left">{{ form.password.label }}<br>
-                  {{ form.password(class="form-control") }}</li>
-              </ul>
-              <div class="card-body">
-                {{ form.submit(class="btn btn-primary btn-block") }}
-              </div>
+            <form class="text-dark" method="POST">
+            <ul class="list-group list-group-flush">
+              {{ form.hidden_tag() }}
+              <li class="list-group-item text-dark font-weight-bold" align="left">{{ form.brukernavn.label }}<br>
+                {{ form.brukernavn(class="form-control") }}</li>
+              <li class="list-group-item text-dark font-weight-bold" align="left">{{ form.passord.label }}<br>
+                {{ form.passord(class="form-control") }}</li>
+            </ul>
+            <div class="card-body">
+              {{ form.submit(class="btn btn-primary btn-block") }}
+            </div>
+            </form>
             </div>
           </div>
         </div>
