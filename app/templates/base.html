@@ -38,6 +38,9 @@
             <li class="nav-item">
               <a data-scroll class="nav-link" href="#kontakt">Kontakt</a>
             </li>
+            {% if current_user.is_authenticated %}
+            <li class="nav-link"><a href="{{url_for('logout')}}" class="text-danger">Logg ut</a></li>
+            {% endif %}
           </ul>
         </div>
       </div>
