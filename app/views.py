@@ -1,7 +1,8 @@
 from app import app, db
-from flask import Flask, render_template, flash, session, redirect, url_for
+from flask import Flask, render_template, flash, session, redirect, url_for, abort
 from app.models import PizzaMenu, ThaiMenu, GrillMenu, Users
 from app.forms import AddPizza, AddThai, AddGrill, DeleteFood, EditPizzaAndThai, EditGrill, LoginForm, SignupForm
+from flask_login import login_user, login_required, logout_user
 
 
 @app.route('/')
@@ -12,6 +13,7 @@ def home():
 	return render_template("index.html", pizzamenu = pizzamenu, grillmenu = grillmenu, thaimenu = thaimenu)
 
 @app.route('/addpizza',methods=['GET','POST'])
+@login_required
 def addpizza():
 
 	title = "Legg til pizza"
@@ -35,6 +37,7 @@ def addpizza():
 	return render_template('forms.html', form=form, title=title)
 
 @app.route('/addthaimat',methods=['GET','POST'])
+@login_required
 def addthai():
 
 	title = "Legg til thaimat"
@@ -58,6 +61,7 @@ def addthai():
 	return render_template('forms.html', form=form, title=title)
 
 @app.route('/addgrillmat',methods=['GET','POST'])
+@login_required
 def addgrill():
 
 	title = "Legg til grillmat"
@@ -83,11 +87,13 @@ def addgrill():
 	return render_template('forms.html', form=form, title=title)
 
 @app.route('/add_confirm', methods=['GET','POST'])
+@login_required
 def add_confirm():
 
 	return render_template('confirm.html')
 
 @app.route('/deletepizza',methods=['GET','POST'])
+@login_required
 def delete_pizza():
 
 	title = "Slett Pizza"
@@ -106,6 +112,7 @@ def delete_pizza():
 	return render_template('delete.html', form=form, title=title)
 
 @app.route('/deletethai',methods=['GET','POST'])
+@login_required
 def delete_thai():
 
 	title = "Slett Thaimat"
@@ -124,6 +131,7 @@ def delete_thai():
 	return render_template('delete.html', form=form, title=title)
 
 @app.route('/deletegrill',methods=['GET','POST'])
+@login_required
 def delete_grill():
 
 	title = "Slett Grillmat"
@@ -142,6 +150,7 @@ def delete_grill():
 	return render_template('delete.html', form=form, title=title)
 
 @app.route('/editpizza', methods=['GET', 'POST'])
+@login_required
 def edit_pizza():
 
 	title = "Endre pizza"
@@ -169,6 +178,7 @@ def edit_pizza():
 	return render_template('editpizza.html', form = form, title = title)
 
 @app.route('/edit_thai', methods=['GET', 'POST'])
+@login_required
 def edit_thai():
 
 	title = 'Endre thaimat'
@@ -195,6 +205,7 @@ def edit_thai():
 	return render_template('edit_thai.html', form = form, title = title)
 
 @app.route('/edit_grill', methods=['GET', 'POST'])
+@login_required
 def edit_grill():
 
 	title = 'Endre grillmat'
@@ -229,6 +240,16 @@ def edit_grill():
 
 	return render_template('editgrill.html', form = form, title = title)
 
+@app.route('/logout')
+@login_required
+def logout():
+
+	# from flask-login
+	logout_user()
+
+	flash('You logged out')
+	return redirect(url_for('home'))
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
 
@@ -236,16 +257,21 @@ def login():
 
 	if form.validate_on_submit():
 
-		brukernavn = form.brukernavn.data
-		passord = form.passord.data
+		user = Users.query.filter_by(brukernavn=form.brukernavn.data).first()
 
-		bruker = Users.query.filter_by(brukernavn=brukernavn).first()
+		# Uses the function to check if the password matches
+		if user.check_password(form.passord.data) and user is not None:
 
-		if not bruker:
-			flash('Feil brukernavn eller passord')
-			return redirect(url_for('login'))
+			# from flask-login
+			login_user(user)
+			flash("Logged in successfully!")
 
-		return redirect(url_for('add_confirm'))
+			next = request.args.get('next')
+
+			if next == None or not next[0] == '/':
+				nest = url_for('home')
+
+			return redirect(next)
 
 	return render_template('login.html', form=form)
 

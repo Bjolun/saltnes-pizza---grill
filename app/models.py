@@ -1,4 +1,10 @@
-from app import db
+from app import db, login_manager
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
+
+@login_manager.user_loader
+def load_user(user_id):
+    return Users.query.get(user_id)
 
 class PizzaMenu(db.Model):
 
@@ -56,14 +62,18 @@ class GrillMenu(db.Model):
         self.price_medium = price_medium
         self.price_large = price_large
 
-class Users(db.Model):
+class Users(db.Model,UserMixin):
 
     __tablename__ = "brukere"
 
     id = db.Column(db.Integer, primary_key=True)
-    brukernavn = db.Column(db.String(18), unique=True)
-    passord = db.Column(db.String(100), unique=False)
+    brukernavn = db.Column(db.String(64), unique=True)
+    passord_hashet = db.Column(db.String(128), unique=False)
 
     def __init__(self, brukernavn, passord):
         self.brukernavn = brukernavn
-        self.passord = passord
+        self.passord_hashet = generate_password_hash(passord)
+
+    def check_password(self, passord):
+
+        return check_password_hash(self.passord_hashet, passord)
