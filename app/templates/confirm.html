@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="{{url_for('static', filename ='css/main.css')}}" type="text/css">
     <link rel="stylesheet" href="{{url_for('static', filename ='css/animation.css')}}" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   </head>
   <body>
     <div class="container">
@@ -23,12 +26,7 @@
       <div class="row">
         <div class="col-12" align="center">
           <hr>
-          {% if session['item'] %}
-          <h2 class="text-dark font-weight-bold">{{ session['item'] }} ble lagt til i menyen!</h2>
-          {{ session.clear() }}
-          {% else %}
           <h2 class="text-dark font-weight-bold mb-5">Legg til i menyen</h2>
-          {% endif %}
         </div>
       </div>
       <div class="row">
