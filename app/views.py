@@ -24,7 +24,6 @@ def addpizza():
 
 		id = int(form.id.data)
 		name = form.name.data
-		session['item'] = form.name.data
 		description = form.description.data
 		allergies = form.allergies.data
 		price = form.price.data
@@ -48,7 +47,6 @@ def addthai():
 
 		id = int(form.id.data)
 		name = form.name.data
-		session['item'] = form.name.data
 		description = form.description.data
 		allergies = form.allergies.data
 		price = form.price.data
@@ -72,7 +70,6 @@ def addgrill():
 
 		id = int(form.id.data)
 		name = form.name.data
-		session['item'] = form.name.data
 		description = form.description.data
 		allergies = form.allergies.data
 		price_small = form.price_small.data

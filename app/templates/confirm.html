@@ -50,12 +50,7 @@
       <div class="row mt-5">
         <div class="col-12" align="center">
           <hr>
-          {% if session['item'] %}
-          <h2 class="text-dark font-weight-bold">{{ session['item'] }} ble lagt til i menyen!</h2>
-          {{ session.clear() }}
-          {% else %}
           <h2 class="text-dark font-weight-bold mb-5">Endre rett på menyen</h2>
-          {% endif %}
         </div>
       </div>
       <div class="row">
@@ -79,12 +74,7 @@
       <div class="row mt-5">
         <div class="col-12" align="center">
           <hr>
-          {% if session['item'] %}
-          <h2 class="text-dark font-weight-bold">{{ session['item'] }} ble lagt til i menyen!</h2>
-          {{ session.clear() }}
-          {% else %}
           <h2 class="text-dark font-weight-bold mb-5">Slett fra menyen</h2>
-          {% endif %}
         </div>
       </div>
       <div class="row">
