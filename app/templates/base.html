@@ -38,6 +38,9 @@
             <li class="nav-item">
               <a data-scroll class="nav-link" href="#kontakt">Kontakt</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link disabled ml-5" href="#" tabindex="-1" aria-disabled="true"><span class="d-none d-lg-block">Telefon: 69282383</span></a>
+            </li>
             {% if current_user.is_authenticated %}
             <li class="nav-link"><a href="{{url_for('logout')}}" class="text-danger">Logg ut</a></li>
             {% endif %}

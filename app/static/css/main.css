@@ -135,6 +135,11 @@ body{
     max-width: 100%;
     height: auto;
   }
+
+  #tlfheader{
+    display: none;
+  }
+
 }
 
 #descrip{
@@ -143,7 +148,6 @@ body{
 
 #descrip_extras{
   font-size: 1rem;
-}
 }
 
 .footer {
