@@ -5,6 +5,9 @@
   <div class="container menupadding" align="center">
     <img src="{{url_for('static',filename='pizza-icon.png')}}" alt="" class="mb-5 img-fluid">
     <!-- <h1 class="display-5 title-style">PIZZAMENY</h1> -->
+    <p class="descrip_pizza mb-5">Alle pizzaer er laget med våre egne bunner, vår egen saus og vår egen osteblanding!<br>
+    <strong>Medium pizza: 160,-.</strong> <em>Kan også bestilles glutenfritt.</em><br></p>
+    <p>Hver <u>tiende</u> pizza får du gratis. Husk stempel!</p>
     <table class="table" style="color: white;">
       <thead>
         <tr align="left">
@@ -16,26 +19,23 @@
       <tbody>
           {%for pizza in pizzamenu%}
         <tr align="left">
-        <th scope="row"><b>{{pizza.id}}. {{pizza.title}}</b></th>
+        <th scope="row"><strong>{{pizza.id}}. {{pizza.title}}</strong></th>
         <td>{{pizza.description}}</td>
         <td>{{pizza.price}},-</td>
         </tr>
         {%endfor%}
-        <p id="descrip_pizza"><b>Alle pizzaer er laget med våre egne bunner, vår egen saus og vår egen osteblanding!</b></p>
-        <p id="descrip_pizza"><b>Alle pizzaer kan bestilles i medium størrelse for 160,-. Kan også bestilles glutenfritt.</b></p>
-        <p id="descrip_pizza"><b>Hver tiende pizza får du gratis. Husk stempel!</b></p>
       </tbody>
     </table>
     <div class="container">
       <img src="{{url_for('static',filename='tilbehorlogo.png')}}" class="mb-3 img-fluid" id="tilbehorlogostyle">
       <div class="row">
         <div class="col-6">
-          <p id="descrip_extras" align="right"><b>Rød saus: 20,-</b></p>
-          <p id="descrip_extras" align="right"><b>Hvit saus: 25,-</b></p>
+          <p class="descrip_extras" align="right"><strong>Rød saus: 20,-</strong></p>
+          <p class="descrip_extras" align="right"><strong>Hvit saus: 25,-</strong></p>
         </div>
         <div class="col-6">
-          <p id="descrip_extras" align="left"><b>Ekstra kjøtt: 35,-</b></p>
-          <p id="descrip_extras" align="left"><b>Ekstra ost: 35,-</b></p>
+          <p class="descrip_extras" align="left"><strong>Ekstra kjøtt: 35,-</strong></p>
+          <p class="descrip_extras" align="left"><strong>Ekstra ost: 35,-</strong></p>
         </div>
       </div>
     </div>
@@ -58,7 +58,7 @@
       <tbody>
           {%for grill in grillmenu%}
         <tr align="left">
-        <th scope="row"><b>{{grill.id}}. {{grill.title}}</b></th>
+        <th scope="row"><strong>{{grill.id}}. {{grill.title}}</strong></th>
         <td>{{grill.description}}</td>
         <td>{{grill.price_small}}</td>
         <td>{{grill.price_medium}}</td>
@@ -73,7 +73,7 @@
   <div class="container menupadding" align="center">
     <img src="{{url_for('static',filename='thai-icon.png')}}" alt="" class="mb-5 img-fluid">
     <!-- <h1 class="display-5 title-style">THAIMENY</h1> -->
-    <table class="table" style="color: white;">
+    <table class="table mb-5" style="color: white;">
       <thead>
         <tr align="left">
           <th scope="<col>">Navn</th>
@@ -82,16 +82,16 @@
         </tr>
       </thead>
       <tbody>
-        <p id="descrip_extras"><b>Kan bestilles med mer kjøtt for 35,- ekstra og ekstra ris for 20,- ekstra!</b></p>
         {%for thai in thaimenu%}
         <tr align="left">
-        <th scope="row"><b>{{thai.id}}. {{thai.title}}</b></th>
+        <th scope="row"><strong>{{thai.id}}. {{thai.title}}</strong></th>
         <td>{{thai.description}}</td>
         <td>{{thai.price}},-</td>
         </tr>
         {%endfor%}
       </tbody>
     </table>
+    <p class="descrip_extras"><strong>Ekstra kjøtt: 35,- <br>Ekstra ris: 20,-</strong></p>
   </div>
 </div>
 <div class="main" id="kontakt">
@@ -100,11 +100,11 @@
       <div class="col-12 col-md-6">
         <div class="mt-5">
           <br>
-          <h1 id="h1_welcome"><u>Kontakt oss</u></h1>
+          <h1 id="h1_welcome"><u>Info</u></h1>
           <br>
-          <p id="descrip"><b>Telefon:</b> 69282383</p>
+          <p id="descrip"><strong>Telefon:</strong> 69282383</p>
           <br>
-          <p id="descrip"><b>Åpningstider:</b></p>
+          <p id="descrip"><strong>Åpningstider:</strong></p>
           <p id="descrip">Mandag-fredag: 14:00 - 22:00</p>
           <p id="descrip">Lørdag-søndag: 12:00 - 22:00</p>
           <br>
@@ -117,7 +117,7 @@
             <div class="mapouter"><div class="gmap_canvas"><iframe width="350" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=Grendehusveien%202&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.pureblack.de"></a></div><style>.mapouter{position:relative;text-align:right;height:300px;width:350px;}.gmap_canvas {overflow:hidden;background:none!important;height:300px;width:350px;}</style></div>
           </span>
           <span id="show_address">
-            <p id="descrip"><b>Adresse:</b></p>
+            <p id="descrip"><strong>Adresse:</strong></p>
             <p id="descrip">Grendehusveien 2, 1642 Saltnes</p>
           </span>
         </div>

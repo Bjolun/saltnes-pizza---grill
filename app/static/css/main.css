@@ -106,11 +106,7 @@ body{
 }
 
 @media screen and (max-width: 420px) {
-  .table {
-    font-size: 0.7rem;
-  }
-
-  #descrip_pizza{
+  .table, .descrip_pizza, .descrip_extras {
     font-size: 0.7rem;
   }
 }
