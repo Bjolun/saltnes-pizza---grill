@@ -4,7 +4,6 @@ from app.models import PizzaMenu, ThaiMenu, GrillMenu, Users
 from app.forms import AddPizza, AddThai, AddGrill, DeleteFood, EditPizzaAndThai, EditGrill, LoginForm, SignupForm
 from flask_login import login_user, login_required, logout_user
 
-
 @app.route('/')
 def home():
 	pizzamenu = PizzaMenu.query.all()
@@ -19,6 +18,8 @@ def addpizza():
 	title = "Legg til pizza"
 
 	form = AddPizza()
+	pizzamenu = PizzaMenu.query.all()
+
 
 	if form.validate_on_submit():
 
@@ -33,12 +34,13 @@ def addpizza():
 
 		return redirect(url_for('add_confirm'))
 
-	return render_template('forms.html', form=form, title=title)
+	return render_template('forms.html', form=form, title=title, menu=pizzamenu)
 
 @app.route('/addthaimat',methods=['GET','POST'])
 @login_required
 def addthai():
 
+	thaimenu = ThaiMenu.query.all()
 	title = "Legg til thaimat"
 
 	form = AddThai()
@@ -56,7 +58,7 @@ def addthai():
 
 		return redirect(url_for('add_confirm'))
 
-	return render_template('forms.html', form=form, title=title)
+	return render_template('forms.html', form=form, title=title, menu=thaimenu)
 
 @app.route('/addgrillmat',methods=['GET','POST'])
 @login_required
@@ -65,6 +67,7 @@ def addgrill():
 	title = "Legg til grillmat"
 
 	form = AddGrill()
+	grillmenu = GrillMenu.query.all()
 
 	if form.validate_on_submit():
 
@@ -81,7 +84,7 @@ def addgrill():
 
 		return redirect(url_for('add_confirm'))
 
-	return render_template('forms.html', form=form, title=title)
+	return render_template('forms.html', form=form, title=title, menu=grillmenu)
 
 @app.route('/add_confirm', methods=['GET','POST'])
 @login_required
@@ -96,6 +99,7 @@ def delete_pizza():
 	title = "Slett Pizza"
 
 	form = DeleteFood()
+	pizzamenu = PizzaMenu.query.all()
 
 	if form.validate_on_submit():
 		id = form.idDel.data
@@ -106,7 +110,7 @@ def delete_pizza():
 
 		return redirect(url_for('add_confirm'))
 
-	return render_template('delete.html', form=form, title=title)
+	return render_template('delete.html', form=form, title=title, menu=pizzamenu)
 
 @app.route('/deletethai',methods=['GET','POST'])
 @login_required
@@ -115,6 +119,7 @@ def delete_thai():
 	title = "Slett Thaimat"
 
 	form = DeleteFood()
+	thaimenu = ThaiMenu.query.all()
 
 	if form.validate_on_submit():
 		id = form.idDel.data
@@ -125,7 +130,7 @@ def delete_thai():
 
 		return redirect(url_for('add_confirm'))
 
-	return render_template('delete.html', form=form, title=title)
+	return render_template('delete.html', form=form, title=title, menu=thaimenu)
 
 @app.route('/deletegrill',methods=['GET','POST'])
 @login_required
@@ -134,6 +139,8 @@ def delete_grill():
 	title = "Slett Grillmat"
 
 	form = DeleteFood()
+	grillmenu = GrillMenu.query.all()
+
 
 	if form.validate_on_submit():
 		id = form.idDel.data
@@ -144,13 +151,15 @@ def delete_grill():
 
 		return redirect(url_for('add_confirm'))
 
-	return render_template('delete.html', form=form, title=title)
+	return render_template('delete.html', form=form, title=title, menu=grillmenu)
 
 @app.route('/editpizza', methods=['GET', 'POST'])
 @login_required
 def edit_pizza():
 
 	title = "Endre pizza"
+	pizzamenu = PizzaMenu.query.all()
+
 
 	form = EditPizzaAndThai()
 
@@ -172,7 +181,7 @@ def edit_pizza():
 		return redirect(url_for('add_confirm'))
 
 
-	return render_template('editpizza.html', form = form, title = title)
+	return render_template('editpizza.html', form = form, title = title, menu=pizzamenu)
 
 @app.route('/edit_thai', methods=['GET', 'POST'])
 @login_required
@@ -181,6 +190,7 @@ def edit_thai():
 	title = 'Endre thaimat'
 
 	form = EditPizzaAndThai()
+	thaimenu = ThaiMenu.query.all()
 
 	if form.validate_on_submit():
 		id = form.id.data
@@ -199,7 +209,7 @@ def edit_thai():
 
 		return redirect(url_for('add_confirm'))
 
-	return render_template('edit_thai.html', form = form, title = title)
+	return render_template('edit_thai.html', form = form, title = title, menu=thaimenu)
 
 @app.route('/edit_grill', methods=['GET', 'POST'])
 @login_required
@@ -208,6 +218,7 @@ def edit_grill():
 	title = 'Endre grillmat'
 
 	form = EditGrill()
+	grillmenu = GrillMenu.query.all()
 
 	if form.validate_on_submit():
 		id = form.id.data
@@ -235,7 +246,7 @@ def edit_grill():
 
 		return redirect(url_for('add_confirm'))
 
-	return render_template('editgrill.html', form = form, title = title)
+	return render_template('editgrill.html', form = form, title = title, menu=grillmenu)
 
 @app.route('/logout')
 @login_required
@@ -266,7 +277,7 @@ def login():
 			next = request.args.get('next')
 
 			if next == None or not next[0] == '/':
-				nest = url_for('home')
+				next = url_for('home')
 
 			return redirect(next)
 

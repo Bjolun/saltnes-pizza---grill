@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
   </head>
   <body>
     <div class="container">
@@ -61,6 +61,17 @@
             <br>
             {{ form.submit(class='btn btn-warning') }}
           </form>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="text-dark mb-3">Nåværende meny:</h3>
+          {% for item in menu %}
+          <p class="text-dark"><strong>{{item.id}}: {{item.title}}</strong><span class="ml-2"><em>{{item.price}},-</em></span><br>
+          {{item.description}}<br>
+          Allergener: {{item.allergies}}</p>
+          {% endfor %}
         </div>
       </div>
     </div>
