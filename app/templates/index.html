@@ -11,16 +11,16 @@
     <table class="table" style="color: white;">
       <thead>
         <tr align="left">
-          <th scope="<col>">Navn</th>
-          <th scope="<col>">Ingredienser</th>
-          <th scope="<col>">Pris</th>
+          <th scope="col">Navn</th>
+          <th scope="col">Ingredienser</th>
+          <th scope="col">Pris</th>
         </tr>
       </thead>
       <tbody>
         {%for pizza in pizzamenu%}
         <tr align="left">
         <th scope="row"><strong>{{pizza.id}}. {{pizza.title}}</strong></th>
-        <td>{{pizza.description}}<br>Allergener:</td>
+        <td>{{pizza.description}}<br><span style="color:rgb(255,0,0)">Allergener: {% for i in pizza.allergies.split( ) %}{{i}}{% if not loop.last%}, {%endif%}{% endfor %}</span></td>
         <td>{{pizza.price}},-</td>
         </tr>
         {%endfor%}
@@ -45,24 +45,25 @@
   <div class="container menupadding" align="center">
     <img src="{{url_for('static',filename='grill-icon.png')}}" alt="" class="mb-5 img-fluid">
     <!-- <h1 class="display-5 title-style">GRILLMENY</h1> -->
+    <p align="left">Våre hamburgerer har følgende størrelser: 100g (Liten), 160g (Medium) og 250g (Stor)</p>
     <table class="table" style="color: white;">
       <thead>
         <tr align="left">
-          <th scope="<col>">Navn</th>
-          <th scope="<col>">Info</th>
-          <th scope="<col>">L</th>
-          <th scope="<col>">M</th>
-          <th scope="<col>">S</th>
+          <th scope="col">Navn</th>
+          <th scope="col">Info</th>
+          <th scope="col">L</th>
+          <th scope="col">M</th>
+          <th scope="col">S</th>
         </tr>
       </thead>
       <tbody>
-          {%for grill in grillmenu%}
+        {%for grill in grillmenu%}
         <tr align="left">
         <th scope="row"><strong>{{grill.id}}. {{grill.title}}</strong></th>
-        <td>{{grill.description}}</td>
-        <td>{{grill.price_small}}</td>
-        <td>{{grill.price_medium}}</td>
-        <td>{{grill.price_large}}</td>
+        <td>{{grill.description}}<br><span style="color:rgb(255,0,0)">Allergener: {% for i in grill.allergies.split( ) %}{{i}}{% if not loop.last%}, {%endif%}{% endfor %}</span></td>
+        <td>{{grill.price_small}}{% if grill.price_small %},-{% endif %}</td>
+        <td>{{grill.price_medium}}{% if grill.price_medium %},-{% endif %}</td>
+        <td>{{grill.price_large}}{% if grill.price_large %},-{% endif %}</td>
         </tr>
         {%endfor%}
       </tbody>
@@ -76,16 +77,16 @@
     <table class="table mb-5" style="color: white;">
       <thead>
         <tr align="left">
-          <th scope="<col>">Navn</th>
-          <th scope="<col>">Ingredienser</th>
-          <th scope="<col>">Pris</th>
+          <th scope="col">Navn</th>
+          <th scope="col">Ingredienser</th>
+          <th scope="col">Pris</th>
         </tr>
       </thead>
       <tbody>
         {%for thai in thaimenu%}
         <tr align="left">
         <th scope="row"><strong>{{thai.id}}. {{thai.title}}</strong></th>
-        <td>{{thai.description}}</td>
+        <td>{{thai.description}}<br><span style="color:rgb(255,0,0)">Allergener: {% for i in thai.allergies.split( ) %}{{i}}{% if not loop.last%}, {%endif%}{% endfor %}</span></td>
         <td>{{thai.price}},-</td>
         </tr>
         {%endfor%}
@@ -104,7 +105,7 @@
           <br>
           <p id="descrip"><strong>Telefon:</strong> 69282383</p>
           <br>
-          <p id="descrip"><strong>Åpningstider:</strong></p>
+          <h4 class="mb-4"><strong>Åpningstider:</strong></h4>
           <p id="descrip">Mandag-fredag: 14:00 - 22:00</p>
           <p id="descrip">Lørdag-søndag: 12:00 - 22:00</p>
           <br>

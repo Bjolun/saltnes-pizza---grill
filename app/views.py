@@ -178,6 +178,10 @@ def edit_pizza():
 			db.session.query(PizzaMenu).filter(PizzaMenu.id == id).update({'price': form.price.data})
 			db.session.commit()
 
+		if form.allergies.data != "":
+			db.session.query(PizzaMenu).filter(PizzaMenu.id == id).update({'allergies': ' '.join(form.allergies.data)})
+			db.session.commit()
+
 		return redirect(url_for('add_confirm'))
 
 
@@ -230,7 +234,6 @@ def edit_grill():
 		if form.description.data != "":
 			db.session.query(GrillMenu).filter(GrillMenu.id == id).update({'description': form.description.data})
 			db.session.commit()
-
 
 		if form.price_small.data != "":
 			db.session.query(GrillMenu).filter(GrillMenu.id == id).update({'price_small': form.price_small.data})

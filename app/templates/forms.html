@@ -49,9 +49,6 @@
             {{ form.description.label(class='font-weight-bold') }}
             {{ form.description(class='form-control') }}
             <br>
-            {{ form.allergies.label(class='font-weight-bold') }}
-            {{ form.allergies(class='form-control') }}
-            <br>
             {% if form.price %}
               {{ form.price.label(class='font-weight-bold') }}
               {{ form.price(class='form-control') }}
@@ -66,6 +63,8 @@
               {{ form.price_large(class='form-control') }}
             {% endif %}
             <br>
+              {{ form.allergies(style="list-style-type:none;",class="pl-4") }}
+            <br>
             {{ form.submit(class='btn btn-warning') }}
           </form>
         </div>
@@ -77,7 +76,7 @@
           {% for item in menu %}
           <p class="text-dark"><strong>{{item.id}}: {{item.title}}</strong><span class="ml-2"><em>{{item.price}},-</em></span><br>
           {{item.description}}<br>
-          Allergener: {% for i in item.allergies %}{{i}}, {% endfor %}</p>
+          Allergener: {% for i in item.allergies.split( ) %}{{i}}{% if not loop.last%}, {%endif%}{% endfor %}</p>
           {% endfor %}
         </div>
     </div>
