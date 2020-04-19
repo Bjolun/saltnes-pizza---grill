@@ -17,10 +17,10 @@
         </tr>
       </thead>
       <tbody>
-          {%for pizza in pizzamenu%}
+        {%for pizza in pizzamenu%}
         <tr align="left">
         <th scope="row"><strong>{{pizza.id}}. {{pizza.title}}</strong></th>
-        <td>{{pizza.description}}</td>
+        <td>{{pizza.description}}<br>Allergener:</td>
         <td>{{pizza.price}},-</td>
         </tr>
         {%endfor%}
@@ -91,7 +91,7 @@
         {%endfor%}
       </tbody>
     </table>
-    <p class="descrip_extras"><strong>Ekstra kjøtt: 35,- <br>Ekstra ris: 20,-</strong></p>
+    <p class="descrip_extras" align="left"><strong>Ekstra kjøtt: 35,- <br>Ekstra ris: 20,-</strong></p>
   </div>
 </div>
 <div class="main" id="kontakt">

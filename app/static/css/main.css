@@ -38,7 +38,7 @@ body{
   height: 100%;
   min-height: 500px;
   padding-bottom: 50px;
-  background-image: url(/static/pizza-doodle.png);
+  /* background-image: url(/static/pizza-doodle.png); */
   background-color: rgb(20,20,20);
   background-size: cover;
   background-position: center;
@@ -51,7 +51,7 @@ body{
   height: 100%;
   min-height: 500px;
   padding-bottom: 50px;
-  background-image: url(/static/grill-doodle.png);
+  /* background-image: url(/static/grill-doodle.png); */
   background-color: rgb(20,20,20);
   background-size: cover;
   background-position: center;
@@ -62,7 +62,7 @@ body{
   height: 100%;
   min-height: 500px;
   padding-bottom: 50px;
-  background-image: url(/static/thai-doodle.png);
+  /* background-image: url(/static/thai-doodle.png); */
   background-color: rgb(20,20,20);
   background-size: cover;
   background-position: center;
@@ -96,7 +96,7 @@ body{
 }
 
 #tilbehorlogostyle{
-  height: 5vh;
+  height: 3vh;
 }
 
 .title-style {
