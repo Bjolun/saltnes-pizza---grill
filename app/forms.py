@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, IntegerField, PasswordField, SelectMultipleField
+from wtforms import StringField, SubmitField, IntegerField, PasswordField, SelectMultipleField, RadioField
 from wtforms import validators, widgets
 
 allergies_list = [('Melk','Melk'),('Hvetegluten','Hvetegluten'),('Selleri','Selleri'),('Sennep','Sennep'),('Soya','Soya'),('Skalldyr','Skalldyr'),('Nøtter','Nøtter'),('Egg','Egg'),('Sesam','Sesam'),('Fisk','Fisk')]
@@ -36,6 +36,7 @@ class AddGrill(FlaskForm):
 class DeleteFood(FlaskForm):
 
     idDel = IntegerField(u'Id-Nummer på retten du vil slette.',[validators.Required()])
+    del_confirm = RadioField(u"Bekreft",choices=[('ja','Ja, jeg vil slette denne retten')])
     submit = SubmitField('Slett')
 
 class EditPizzaAndThai(FlaskForm):
@@ -44,6 +45,7 @@ class EditPizzaAndThai(FlaskForm):
     name = StringField(u'Nytt Navn')
     description = StringField(u'Endre beskrivelse')
     price = StringField(u'Endre pris')
+    allergies_check = SelectMultipleField(u'Allergi-sjekk', choices=[("yes",'Huk av for å endre på allergier')],option_widget=widgets.CheckboxInput(),widget=widgets.ListWidget(prefix_label=False))
     allergies = SelectMultipleField(u'Velg allergener for maten',choices=allergies_list,option_widget=widgets.CheckboxInput(),widget=widgets.ListWidget(prefix_label=False))
     submit = SubmitField('Lagre endringer')
 
@@ -56,6 +58,7 @@ class EditGrill(FlaskForm):
     price_small = StringField(u'Endre pris på liten rett (Bruk mellomrom for å fjerne nåværende pris)')
     price_medium = StringField(u'Endre pris på medium rett (Bruk mellomrom for å fjerne nåværende pris)')
     price_large = StringField(u'Endre pris på stor rett (Bruk mellomrom for å fjerne nåværende pris)')
+    allergies_check = SelectMultipleField(u'Allergi-sjekk', choices=[("yes",'Huk av for å endre på allergier')],option_widget=widgets.CheckboxInput(),widget=widgets.ListWidget(prefix_label=False))
     allergies = SelectMultipleField(u'Velg allergener for maten',choices=allergies_list,option_widget=widgets.CheckboxInput(),widget=widgets.ListWidget(prefix_label=False))
     submit = SubmitField('Lagre endringer')
 

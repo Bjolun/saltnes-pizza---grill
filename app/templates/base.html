@@ -38,9 +38,6 @@
             <li class="nav-item">
               <a data-scroll class="nav-link" href="#kontakt">Info</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link disabled ml-5" href="#" tabindex="-1" aria-disabled="true"><span class="d-none d-lg-block">Telefon: 69282383</span></a>
-            </li>
             {% if current_user.is_authenticated %}
             <li class="nav-link">
               <a href="{{url_for('add_confirm')}}" class="text-warning">Rediger side</a>
@@ -58,7 +55,9 @@
         <div class="row h-100 align-items-center">
           <div class="col-12 text-center">
             <h1 class="font-weight-light mt-5"> Velkommen til Saltnes Grill & Pizza</h1>
-            <p class="lead">Kom til oss for en hyggelig matopplevelse!</p>
+            <hr style="border-color:white;">
+            <span class="lead">Ring og bestill på telefon:<br>
+            <h1>69282383</h1></span>
           </div>
           <div class="col-12 text-center">
             <a href="#pizza" class="fadeIn"><img src="{{url_for('static',filename='down-arrow.png')}}" alt=""></a>

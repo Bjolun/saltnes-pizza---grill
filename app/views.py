@@ -26,13 +26,13 @@ def addpizza():
 		id = int(form.id.data)
 		name = form.name.data
 		description = form.description.data
-		allergies = form.allergies.data
+		allergies = ' '.join(form.allergies.data)
 		price = form.price.data
 		new_pizza = PizzaMenu(id=id,title=name,description=description,allergies=allergies,price=price)
 		db.session.add(new_pizza)
 		db.session.commit()
 
-		return redirect(url_for('add_confirm'))
+		return redirect(url_for('addpizza'))
 
 	return render_template('forms.html', form=form, title=title, menu=pizzamenu)
 
@@ -50,13 +50,13 @@ def addthai():
 		id = int(form.id.data)
 		name = form.name.data
 		description = form.description.data
-		allergies = form.allergies.data
+		allergies = ' '.join(form.allergies.data)
 		price = form.price.data
 		new_pizza = ThaiMenu(id=id,title=name,description=description,allergies=allergies,price=price)
 		db.session.add(new_pizza)
 		db.session.commit()
 
-		return redirect(url_for('add_confirm'))
+		return redirect(url_for('addthai'))
 
 	return render_template('forms.html', form=form, title=title, menu=thaimenu)
 
@@ -74,7 +74,7 @@ def addgrill():
 		id = int(form.id.data)
 		name = form.name.data
 		description = form.description.data
-		allergies = form.allergies.data
+		allergies = ' '.join(form.allergies.data)
 		price_small = form.price_small.data
 		price_medium = form.price_medium.data
 		price_large = form.price_large.data
@@ -82,7 +82,7 @@ def addgrill():
 		db.session.add(new_pizza)
 		db.session.commit()
 
-		return redirect(url_for('add_confirm'))
+		return redirect(url_for('addgrill'))
 
 	return render_template('forms.html', form=form, title=title, menu=grillmenu)
 
@@ -108,7 +108,7 @@ def delete_pizza():
 		db.session.delete(delete)
 		db.session.commit()
 
-		return redirect(url_for('add_confirm'))
+		return redirect(url_for('delete_pizza'))
 
 	return render_template('delete.html', form=form, title=title, menu=pizzamenu)
 
@@ -122,13 +122,14 @@ def delete_thai():
 	thaimenu = ThaiMenu.query.all()
 
 	if form.validate_on_submit():
-		id = form.idDel.data
-		delete = ThaiMenu.query.get(id)
+		if del_confirm.data == "ja":
+			id = form.idDel.data
+			delete = ThaiMenu.query.get(id)
 
-		db.session.delete(delete)
-		db.session.commit()
+			db.session.delete(delete)
+			db.session.commit()
 
-		return redirect(url_for('add_confirm'))
+		return redirect(url_for('delete_thai'))
 
 	return render_template('delete.html', form=form, title=title, menu=thaimenu)
 
@@ -149,7 +150,7 @@ def delete_grill():
 		db.session.delete(delete)
 		db.session.commit()
 
-		return redirect(url_for('add_confirm'))
+		return redirect(url_for('delete_grill'))
 
 	return render_template('delete.html', form=form, title=title, menu=grillmenu)
 
@@ -178,11 +179,14 @@ def edit_pizza():
 			db.session.query(PizzaMenu).filter(PizzaMenu.id == id).update({'price': form.price.data})
 			db.session.commit()
 
-		if form.allergies.data != "":
-			db.session.query(PizzaMenu).filter(PizzaMenu.id == id).update({'allergies': ' '.join(form.allergies.data)})
-			db.session.commit()
+		try:
+			if form.allergies_check.data[0]:
+				db.session.query(PizzaMenu).filter(PizzaMenu.id == id).update({'allergies': ' '.join(form.allergies.data)})
+				db.session.commit()
+		except:
+			pass
 
-		return redirect(url_for('add_confirm'))
+		return redirect(url_for('edit_pizza'))
 
 
 	return render_template('editpizza.html', form = form, title = title, menu=pizzamenu)
@@ -211,7 +215,7 @@ def edit_thai():
 			db.session.query(ThaiMenu).filter(ThaiMenu.id == id).update({'price': form.price.data})
 			db.session.commit()
 
-		return redirect(url_for('add_confirm'))
+		return redirect(url_for('edit_thai'))
 
 	return render_template('edit_thai.html', form = form, title = title, menu=thaimenu)
 
@@ -247,7 +251,7 @@ def edit_grill():
 			db.session.query(GrillMenu).filter(GrillMenu.id == id).update({'price_large': form.price_large.data})
 			db.session.commit()
 
-		return redirect(url_for('add_confirm'))
+		return redirect(url_for('edit_grill'))
 
 	return render_template('editgrill.html', form = form, title = title, menu=grillmenu)
 
