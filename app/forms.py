@@ -1,3 +1,5 @@
+#!usr/bin/python
+# -*- coding: utf-8 -*-
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, IntegerField, PasswordField, SelectMultipleField, RadioField
 from wtforms import validators, widgets

@@ -1,3 +1,5 @@
+#!usr/bin/python
+# -*- coding: utf-8 -*-
 from app import app, db
 from flask import Flask, render_template, flash, session, redirect, url_for, abort, request
 from app.models import PizzaMenu, ThaiMenu, GrillMenu, Users, PizzaInformation, ThaiInformation

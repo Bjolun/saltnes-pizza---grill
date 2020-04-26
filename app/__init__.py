@@ -1,3 +1,5 @@
+#!usr/bin/python
+# -*- coding: utf-8 -*-
 # __init__.py
 # imports
 import os

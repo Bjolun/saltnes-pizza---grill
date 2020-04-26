@@ -1,4 +1,8 @@
 #!flash/bin/python
+
+#!usr/bin/python
+# -*- coding: utf-8 -*-
+
 from app import app
 
 # DEBUG IS SET TO TRUE!!
