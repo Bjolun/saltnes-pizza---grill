@@ -325,21 +325,29 @@ def login():
 
 	if form.validate_on_submit():
 
-		user = Users.query.filter_by(brukernavn=form.brukernavn.data).first()
+		try:
+			user = Users.query.filter_by(brukernavn=form.brukernavn.data).first()
+		except:
+			session['login_msg'] = ["Kunne ikke logge deg inn.", "Passord eller brukernavn er feil."]
 
-		# Uses the function to check if the password matches
-		if user.check_password(form.passord.data) and user is not None:
+		try:
+			# Uses the function to check if the password matches
+			if user.check_password(form.passord.data) and user is not None:
 
-			# from flask-login
-			login_user(user)
-			flash("Logged in successfully!")
+				# from flask-login
+				login_user(user)
+				flash("Logged in successfully!")
 
-			next = request.args.get('next')
+				next = request.args.get('next')
 
-			if next == None or not next[0] == '/':
-				next = url_for('home')
+				if next == None or not next[0] == '/':
+					next = url_for('home')
 
-			return redirect(next)
+				return redirect(next)
+
+		except:
+			session['login_msg'] = ["Kunne ikke logge deg inn.", "Passord eller brukernavn er feil."]
+			return redirect(url_for('login'))
 
 	return render_template('login.html', form=form)
 
