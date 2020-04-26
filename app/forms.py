@@ -4,7 +4,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, IntegerField, PasswordField, SelectMultipleField, RadioField
 from wtforms import validators, widgets
 
-allergies_list = [('Melk','Melk'),('Hvetegluten','Hvetegluten'),('Selleri','Selleri'),('Sennep','Sennep'),('Soya','Soya'),('Skalldyr','Skalldyr'),('Nøtter','Nøtter'),('Egg','Egg'),('Sesam','Sesam'),('Fisk','Fisk')]
+allergies_list = [(u'Melk',u'Melk'),(u'Hvetegluten',u'Hvetegluten'),(u'Selleri',u'Selleri'),(u'Sennep',u'Sennep'),(u'Soya',u'Soya'),(u'Skalldyr',u'Skalldyr'),(u'Nøtter',u'Nøtter'),(u'Egg',u'Egg'),(u'Sesam',u'Sesam'),(u'Fisk',u'Fisk')]
 
 class AddPizza(FlaskForm):
 
@@ -38,7 +38,7 @@ class AddGrill(FlaskForm):
 class DeleteFood(FlaskForm):
 
     idDel = IntegerField(u'Id-Nummer på retten du vil slette.',[validators.Required()])
-    del_confirm = RadioField(u"Bekreft",choices=[('ja','Ja, jeg vil slette denne retten')])
+    del_confirm = RadioField(u"Bekreft",choices=[(u'ja',u'Ja, jeg vil slette denne retten')])
     submit = SubmitField(u'Slett')
 
 class EditPizzaAndThai(FlaskForm):
@@ -47,7 +47,7 @@ class EditPizzaAndThai(FlaskForm):
     name = StringField(u'Nytt Navn')
     description = StringField(u'Endre beskrivelse')
     price = StringField(u'Endre pris')
-    allergies_check = SelectMultipleField(u'Allergi-sjekk', choices=[("yes",'Huk av for å endre på allergier')],option_widget=widgets.CheckboxInput(),widget=widgets.ListWidget(prefix_label=False))
+    allergies_check = SelectMultipleField(u'Allergi-sjekk', choices=[(u"yes",u'Huk av for å endre på allergier')],option_widget=widgets.CheckboxInput(),widget=widgets.ListWidget(prefix_label=False))
     allergies = SelectMultipleField(u'Velg allergener for maten',choices=allergies_list,option_widget=widgets.CheckboxInput(),widget=widgets.ListWidget(prefix_label=False))
     submit = SubmitField(u'Lagre endringer')
 

@@ -20,7 +20,7 @@ def home():
 @login_required
 def addpizza():
 
-	title = "Legg til pizza"
+	title = u"Legg til pizza"
 
 	form = AddPizza()
 	pizzamenu = PizzaMenu.query.all()
@@ -46,7 +46,7 @@ def addpizza():
 def addthai():
 
 	thaimenu = ThaiMenu.query.all()
-	title = "Legg til thaimat"
+	title = u"Legg til thaimat"
 
 	form = AddThai()
 
@@ -69,7 +69,7 @@ def addthai():
 @login_required
 def addgrill():
 
-	title = "Legg til grillmat"
+	title = u"Legg til grillmat"
 
 	form = AddGrill()
 	grillmenu = GrillMenu.query.all()
@@ -101,7 +101,7 @@ def add_confirm():
 @login_required
 def delete_pizza():
 
-	title = "Slett Pizza"
+	title = u"Slett Pizza"
 
 	form = DeleteFood()
 	pizzamenu = PizzaMenu.query.all()
@@ -121,7 +121,7 @@ def delete_pizza():
 @login_required
 def delete_thai():
 
-	title = "Slett Thaimat"
+	title = u"Slett Thaimat"
 
 	form = DeleteFood()
 	thaimenu = ThaiMenu.query.all()
@@ -142,7 +142,7 @@ def delete_thai():
 @login_required
 def delete_grill():
 
-	title = "Slett Grillmat"
+	title = u"Slett Grillmat"
 
 	form = DeleteFood()
 	grillmenu = GrillMenu.query.all()
@@ -163,7 +163,7 @@ def delete_grill():
 @login_required
 def edit_pizza():
 
-	title = "Endre pizza"
+	title = u"Endre pizza"
 	pizzamenu = PizzaMenu.query.all()
 
 
@@ -200,7 +200,7 @@ def edit_pizza():
 @login_required
 def edit_thai():
 
-	title = 'Endre thaimat'
+	title = u'Endre thaimat'
 
 	form = EditPizzaAndThai()
 	thaimenu = ThaiMenu.query.all()
@@ -228,7 +228,7 @@ def edit_thai():
 @login_required
 def edit_grill():
 
-	title = 'Endre grillmat'
+	title = u'Endre grillmat'
 
 	form = EditGrill()
 	grillmenu = GrillMenu.query.all()
@@ -263,7 +263,7 @@ def edit_grill():
 @app.route('/editinfothai', methods=['GET','POST'])
 @login_required
 def edit_info_thai():
-	title = "Endre andre priser assosiert med thaimat"
+	title = u"Endre andre priser assosiert med thaimat"
 	form = InformationThai()
 
 	if form.validate_on_submit():
@@ -282,7 +282,7 @@ def edit_info_thai():
 @app.route('/editinfopizza', methods=['GET','POST'])
 @login_required
 def edit_info_pizza():
-	title = "Endre andre priser assosiert med pizza"
+	title = u"Endre andre priser assosiert med pizza"
 	form = InformationPizza()
 
 	if form.validate_on_submit():
@@ -317,7 +317,7 @@ def logout():
 	# from flask-login
 	logout_user()
 
-	flash('You logged out')
+	flash(u'You logged out')
 	return redirect(url_for('home'))
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -330,7 +330,7 @@ def login():
 		try:
 			user = Users.query.filter_by(brukernavn=form.brukernavn.data).first()
 		except:
-			session['login_msg'] = ["Kunne ikke logge deg inn.", "Passord eller brukernavn er feil."]
+			session['login_msg'] = [u"Kunne ikke logge deg inn.", u"Passord eller brukernavn er feil."]
 
 		try:
 			# Uses the function to check if the password matches
@@ -338,7 +338,7 @@ def login():
 
 				# from flask-login
 				login_user(user)
-				flash("Logged in successfully!")
+				flash(u"Logged in successfully!")
 
 				next = request.args.get('next')
 
@@ -348,7 +348,7 @@ def login():
 				return redirect(next)
 
 		except:
-			session['login_msg'] = ["Kunne ikke logge deg inn.", "Passord eller brukernavn er feil."]
+			session['login_msg'] = [u"Kunne ikke logge deg inn.", u"Passord eller brukernavn er feil."]
 			return redirect(url_for('login'))
 
 	return render_template('login.html', form=form)
