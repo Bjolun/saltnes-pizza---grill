@@ -13,7 +13,7 @@ class AddPizza(FlaskForm):
     description = StringField(u'Hva inneholder Pizzaen? ',[validators.Required()])
     allergies = SelectMultipleField(u'Velg allergener for maten',choices=allergies_list,option_widget=widgets.CheckboxInput(),widget=widgets.ListWidget(prefix_label=False))
     price = StringField(u'Pris på pizza (stor): ')
-    submit = SubmitField('Legg til Pizza')
+    submit = SubmitField(u'Legg til Pizza')
 
 class AddThai(FlaskForm):
 
@@ -22,7 +22,7 @@ class AddThai(FlaskForm):
     description = StringField(u'Hva inneholder Thaimaten? ',[validators.Required()])
     allergies = SelectMultipleField(u'Velg allergener for maten',choices=allergies_list,option_widget=widgets.CheckboxInput(),widget=widgets.ListWidget(prefix_label=False))
     price = StringField(u'Pris på thaimat: ')
-    submit = SubmitField('Legg til Thaimat')
+    submit = SubmitField(u'Legg til Thaimat')
 
 class AddGrill(FlaskForm):
 
@@ -33,13 +33,13 @@ class AddGrill(FlaskForm):
     price_small = StringField(u'Pris på grillmaten (liten): ')
     price_medium = StringField(u'Pris på grillmaten (medium)')
     price_large = StringField(u'Pris på grillmaten (stor)')
-    submit = SubmitField('Legg til grillmat')
+    submit = SubmitField(u'Legg til grillmat')
 
 class DeleteFood(FlaskForm):
 
     idDel = IntegerField(u'Id-Nummer på retten du vil slette.',[validators.Required()])
     del_confirm = RadioField(u"Bekreft",choices=[('ja','Ja, jeg vil slette denne retten')])
-    submit = SubmitField('Slett')
+    submit = SubmitField(u'Slett')
 
 class EditPizzaAndThai(FlaskForm):
 
@@ -49,7 +49,7 @@ class EditPizzaAndThai(FlaskForm):
     price = StringField(u'Endre pris')
     allergies_check = SelectMultipleField(u'Allergi-sjekk', choices=[("yes",'Huk av for å endre på allergier')],option_widget=widgets.CheckboxInput(),widget=widgets.ListWidget(prefix_label=False))
     allergies = SelectMultipleField(u'Velg allergener for maten',choices=allergies_list,option_widget=widgets.CheckboxInput(),widget=widgets.ListWidget(prefix_label=False))
-    submit = SubmitField('Lagre endringer')
+    submit = SubmitField(u'Lagre endringer')
 
 
 class EditGrill(FlaskForm):
@@ -62,19 +62,19 @@ class EditGrill(FlaskForm):
     price_large = StringField(u'Endre pris på stor rett (Bruk mellomrom for å fjerne nåværende pris)')
     allergies_check = SelectMultipleField(u'Allergi-sjekk', choices=[("yes",'Huk av for å endre på allergier')],option_widget=widgets.CheckboxInput(),widget=widgets.ListWidget(prefix_label=False))
     allergies = SelectMultipleField(u'Velg allergener for maten',choices=allergies_list,option_widget=widgets.CheckboxInput(),widget=widgets.ListWidget(prefix_label=False))
-    submit = SubmitField('Lagre endringer')
+    submit = SubmitField(u'Lagre endringer')
 
 class LoginForm(FlaskForm):
 
     brukernavn = StringField(u'Brukernavn: ', [validators.Required()])
     passord = PasswordField(u'Passord: ', [validators.Required()])
-    submit = SubmitField('Logg inn')
+    submit = SubmitField(u'Logg inn')
 
 class SignupForm(FlaskForm):
 
     brukernavn = StringField(u'Brukernavn: ', [validators.Required()])
     passord = PasswordField(u'Passord: ', [validators.Required()])
-    submit = SubmitField('Lag bruker')
+    submit = SubmitField(u'Lag bruker')
 
 class InformationPizza(FlaskForm):
 
@@ -83,10 +83,10 @@ class InformationPizza(FlaskForm):
     white_sauce = StringField(u'Pris for hvit saus, pizza: ')
     pizza_extra_meat = StringField(u'Pris for ekstra kjøtt på pizza: ')
     pizza_extra_cheese = StringField(u'Pris for ekstra ost på pizza: ')
-    submit = SubmitField('Endre informasjon')
+    submit = SubmitField(u'Endre informasjon')
 
 class InformationThai(FlaskForm):
 
     thai_extra_meat = StringField(u'Pris for ekstra kjøtt: ')
     thai_extra_rice = StringField(u'Pris for ekstra ris: ')
-    submit = SubmitField('Endre informasjon')
+    submit = SubmitField(u'Endre informasjon')
