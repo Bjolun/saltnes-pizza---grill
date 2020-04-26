@@ -77,3 +77,33 @@ class Users(db.Model,UserMixin):
     def check_password(self, passord):
 
         return check_password_hash(self.passord_hashet, passord)
+
+class PizzaInformation(db.Model,UserMixin):
+
+    __tablename__ = "pizza_informasjon"
+
+    id = db.Column(db.Integer, primary_key=True)
+    medium_pizza_price = db.Column(db.String)
+    price_red_sauce = db.Column(db.String)
+    price_white_sauce = db.Column(db.String)
+    pizza_extra_meat = db.Column(db.String)
+    pizza_extra_cheese = db.Column(db.String)
+
+    def __init__(self, medium_pizza_price, price_red_sauce, price_white_sauce, pizza_extra_meat, pizza_extra_cheese):
+        self.medium_pizza_price = medium_pizza_price
+        self.price_red_sauce = price_red_sauce
+        self.price_white_sauce = price_white_sauce
+        self.pizza_extra_meat = pizza_extra_meat
+        self.pizza_extra_cheese = pizza_extra_cheese
+
+class ThaiInformation(db.Model,UserMixin):
+
+    __tablename__ = "thai_informasjon"
+
+    id = db.Column(db.Integer, primary_key=True)
+    thai_extra_meat = db.Column(db.String)
+    thai_extra_rice = db.Column(db.String)
+
+    def __init__(self, thai_extra_meat, thai_extra_rice):
+        self.thai_extra_meat = thai_extra_meat
+        self.thai_extra_rice = thai_extra_rice

@@ -95,6 +95,25 @@
         </div>
       </div>
       <hr>
+      <div class="row mt-5">
+        <div class="col-12" align="center">
+          <hr>
+          <h2 class="text-dark font-weight-bold mb-5">Endre på informasjon</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6" align="center">
+          <form class="form-group" action="{{url_for('edit_info_pizza')}}">
+            <input type="submit" class="btn btn-warning btn-large" value="Endre info om pizza">
+          </form>
+        </div>
+        <div class="col-6" align="center">
+          <form class="form-group" action="{{url_for('edit_info_thai')}}">
+            <input type="submit" class="btn btn-warning btn-large" value="Endre info om thaimat">
+          </form>
+        </div>
+      </div>
+      <hr>
       <div class="row">
         <div class="col-12">
           <p class="text-dark">Kjapp viktig info: <br>

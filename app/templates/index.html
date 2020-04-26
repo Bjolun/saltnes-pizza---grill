@@ -6,7 +6,7 @@
     <img src="{{url_for('static',filename='pizza-icon.png')}}" alt="" class="mb-5 img-fluid">
     <!-- <h1 class="display-5 title-style">PIZZAMENY</h1> -->
     <p class="descrip_pizza mb-5">Alle pizzaer er laget med våre egne bunner, vår egen saus og vår egen osteblanding!<br>
-    <strong>Medium pizza: 160,-.</strong> <em>Kan også bestilles glutenfritt.</em><br></p>
+    <strong>Medium pizza: {%for item in pizzainformation%}{{item.medium_pizza_price}}{%endfor%},-</strong> <em>Kan også bestilles glutenfritt.</em><br></p>
     <p>Hver <u>tiende</u> pizza får du gratis. Husk stempel!</p>
     <table class="table" style="color: white;">
       <thead>
@@ -30,12 +30,14 @@
       <img src="{{url_for('static',filename='tilbehorlogo.png')}}" class="mb-3 img-fluid" id="tilbehorlogostyle">
       <div class="row">
         <div class="col-6">
-          <p class="descrip_extras" align="right"><strong>Rød saus: 20,-</strong></p>
-          <p class="descrip_extras" align="right"><strong>Hvit saus: 25,-</strong></p>
+          {% for item in pizzainformation %}
+          <p class="descrip_extras" align="right"><strong>Rød saus: {{item.price_red_sauce}},-</strong></p>
+          <p class="descrip_extras" align="right"><strong>Hvit saus: {{item.price_white_sauce}},-</strong></p>
         </div>
         <div class="col-6">
-          <p class="descrip_extras" align="left"><strong>Ekstra kjøtt: 35,-</strong></p>
-          <p class="descrip_extras" align="left"><strong>Ekstra ost: 35,-</strong></p>
+          <p class="descrip_extras" align="left"><strong>Ekstra kjøtt: {{item.pizza_extra_meat}},-</strong></p>
+          <p class="descrip_extras" align="left"><strong>Ekstra ost: {{item.pizza_extra_cheese}},-</strong></p>
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -92,7 +94,7 @@
         {%endfor%}
       </tbody>
     </table>
-    <p class="descrip_extras" align="left"><strong>Ekstra kjøtt: 35,- <br>Ekstra ris: 20,-</strong></p>
+    <p class="descrip_extras" align="left"><strong>{% for item in thaiinformation %}Ekstra kjøtt: {{item.thai_extra_meat}},- <br>Ekstra ris: {{item.thai_extra_rice}},-{%endfor%}</strong></p>
   </div>
 </div>
 <div class="main" id="kontakt">

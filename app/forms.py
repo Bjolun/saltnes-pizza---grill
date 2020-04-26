@@ -73,3 +73,18 @@ class SignupForm(FlaskForm):
     brukernavn = StringField(u'Brukernavn: ', [validators.Required()])
     passord = PasswordField(u'Passord: ', [validators.Required()])
     submit = SubmitField('Lag bruker')
+
+class InformationPizza(FlaskForm):
+
+    medium_pizza_price = StringField(u'Pris for medium pizza: ')
+    red_sauce = StringField(u'Pris for rød saus, pizza: ')
+    white_sauce = StringField(u'Pris for hvit saus, pizza: ')
+    pizza_extra_meat = StringField(u'Pris for ekstra kjøtt på pizza: ')
+    pizza_extra_cheese = StringField(u'Pris for ekstra ost på pizza: ')
+    submit = SubmitField('Endre informasjon')
+
+class InformationThai(FlaskForm):
+
+    thai_extra_meat = StringField(u'Pris for ekstra kjøtt: ')
+    thai_extra_rice = StringField(u'Pris for ekstra ris: ')
+    submit = SubmitField('Endre informasjon')
