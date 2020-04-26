@@ -286,11 +286,25 @@ def edit_info_pizza():
 	if form.validate_on_submit():
 		if form.medium_pizza_price.data != "":
 			db.session.query(PizzaInformation).filter(PizzaInformation.id == 1).update({'medium_pizza_price': form.medium_pizza_price.data})
-		#new_info = PizzaInformation(medium_pizza_price=form.medium_pizza_price.data, price_red_sauce=form.red_sauce.data, price_white_sauce=form.white_sauce.data, pizza_extra_meat=form.pizza_extra_meat.data, pizza_extra_cheese=form.pizza_extra_cheese.data)
-		#db.session.add(new_info)
 			db.session.commit()
 
-		return redirect(url_for('edit_info_medium_pizza'))
+		if form.red_sauce.data != "":
+			db.session.query(PizzaInformation).filter(PizzaInformation.id == 1).update({'price_red_sauce': form.red_sauce.data})
+			db.session.commit()
+
+		if form.white_sauce.data != "":
+			db.session.query(PizzaInformation).filter(PizzaInformation.id == 1).update({'price_white_sauce': form.white_sauce.data})
+			db.session.commit()
+
+		if form.pizza_extra_meat.data != "":
+			db.session.query(PizzaInformation).filter(PizzaInformation.id == 1).update({'pizza_extra_meat':form.pizza_extra_meat.data})
+			db.session.commit()
+
+		if form.pizza_extra_cheese.data != "":
+			db.session.query(PizzaInformation).filter(PizzaInformation.id == 1).update({'pizza_extra_cheese':form.pizza_extra_cheese.data})
+			db.session.commit()
+
+		return redirect(url_for('edit_info_pizza'))
 
 	return render_template('editinfopizza.html', title=title, form=form)
 
