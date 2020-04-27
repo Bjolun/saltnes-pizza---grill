@@ -265,6 +265,7 @@ def edit_grill():
 def edit_info_thai():
 	title = u"Endre andre priser assosiert med thaimat"
 	form = InformationThai()
+	thaiinformation = ThaiInformation.query.all()
 
 	if form.validate_on_submit():
 		if form.thai_extra_meat.data != "":
@@ -277,13 +278,14 @@ def edit_info_thai():
 
 		return redirect(url_for(u'edit_info_thai'))
 
-	return render_template(u'editinfothai.html', title=title, form=form)
+	return render_template(u'editinfothai.html', title=title, form=form, info=thaiinformation[0])
 
 @app.route('/editinfopizza', methods=['GET','POST'])
 @login_required
 def edit_info_pizza():
 	title = u"Endre andre priser assosiert med pizza"
 	form = InformationPizza()
+	pizzainformation = PizzaInformation.query.all()
 
 	if form.validate_on_submit():
 		if form.medium_pizza_price.data != "":
@@ -308,7 +310,7 @@ def edit_info_pizza():
 
 		return redirect(url_for('edit_info_pizza'))
 
-	return render_template('editinfopizza.html', title=title, form=form)
+	return render_template('editinfopizza.html', title=title, form=form, info=pizzainformation[0])
 
 @app.route('/logout')
 @login_required
