@@ -60,7 +60,7 @@ class EditGrill(FlaskForm):
     price_small = StringField(u'Endre pris på liten rett (Bruk mellomrom for å fjerne nåværende pris)')
     price_medium = StringField(u'Endre pris på medium rett (Bruk mellomrom for å fjerne nåværende pris)')
     price_large = StringField(u'Endre pris på stor rett (Bruk mellomrom for å fjerne nåværende pris)')
-    allergies_check = SelectMultipleField(u'Allergi-sjekk', choices=[("yes",'Huk av for å endre på allergier')],option_widget=widgets.CheckboxInput(),widget=widgets.ListWidget(prefix_label=False))
+    allergies_check = SelectMultipleField(u'Allergi-sjekk', choices=[(u"yes",'Huk av for å endre på allergier')],option_widget=widgets.CheckboxInput(),widget=widgets.ListWidget(prefix_label=False))
     allergies = SelectMultipleField(u'Velg allergener for maten',choices=allergies_list,option_widget=widgets.CheckboxInput(),widget=widgets.ListWidget(prefix_label=False))
     submit = SubmitField(u'Lagre endringer')
 

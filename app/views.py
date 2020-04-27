@@ -256,7 +256,7 @@ def edit_grill():
 			db.session.query(GrillMenu).filter(GrillMenu.id == id).update({'price_large': form.price_large.data})
 			db.session.commit()
 
-		return redirect(url_for('edit_grill'))
+		return redirect(url_for(u'edit_grill'))
 
 	return render_template(u'editgrill.html', form = form, title = title, menu=grillmenu)
 
