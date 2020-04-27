@@ -10,7 +10,7 @@ def load_user(user_id):
 
 class PizzaMenu(db.Model):
 
-    __tablename__ = "pizzamenu"
+    __tablename__ = u"pizzamenu"
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, unique=False)
@@ -27,7 +27,7 @@ class PizzaMenu(db.Model):
 
 class ThaiMenu(db.Model):
 
-    __tablename__ = "thaimenu"
+    __tablename__ = u"thaimenu"
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, unique=False)
@@ -44,7 +44,7 @@ class ThaiMenu(db.Model):
 
 class GrillMenu(db.Model):
 
-    __tablename__ = "grillmenu"
+    __tablename__ = u"grillmenu"
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, unique=False)
@@ -66,7 +66,7 @@ class GrillMenu(db.Model):
 
 class Users(db.Model,UserMixin):
 
-    __tablename__ = "brukere"
+    __tablename__ = u"brukere"
 
     id = db.Column(db.Integer, primary_key=True)
     brukernavn = db.Column(db.String(64), unique=True)
@@ -82,7 +82,7 @@ class Users(db.Model,UserMixin):
 
 class PizzaInformation(db.Model,UserMixin):
 
-    __tablename__ = "pizza_informasjon"
+    __tablename__ = u"pizza_informasjon"
 
     id = db.Column(db.Integer, primary_key=True)
     medium_pizza_price = db.Column(db.String)
@@ -100,7 +100,7 @@ class PizzaInformation(db.Model,UserMixin):
 
 class ThaiInformation(db.Model,UserMixin):
 
-    __tablename__ = "thai_informasjon"
+    __tablename__ = u"thai_informasjon"
 
     id = db.Column(db.Integer, primary_key=True)
     thai_extra_meat = db.Column(db.String)

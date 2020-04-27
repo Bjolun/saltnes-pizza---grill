@@ -191,10 +191,10 @@ def edit_pizza():
 		except:
 			pass
 
-		return redirect(url_for('edit_pizza'))
+		return redirect(url_for(u'edit_pizza'))
 
 
-	return render_template('editpizza.html', form = form, title = title, menu=pizzamenu)
+	return render_template(u'editpizza.html', form = form, title = title, menu=pizzamenu)
 
 @app.route('/edit_thai', methods=['GET', 'POST'])
 @login_required
@@ -220,9 +220,9 @@ def edit_thai():
 			db.session.query(ThaiMenu).filter(ThaiMenu.id == id).update({'price': form.price.data})
 			db.session.commit()
 
-		return redirect(url_for('edit_thai'))
+		return redirect(url_for(u'edit_thai'))
 
-	return render_template('edit_thai.html', form = form, title = title, menu=thaimenu)
+	return render_template(u'edit_thai.html', form = form, title = title, menu=thaimenu)
 
 @app.route('/edit_grill', methods=['GET', 'POST'])
 @login_required
@@ -258,7 +258,7 @@ def edit_grill():
 
 		return redirect(url_for('edit_grill'))
 
-	return render_template('editgrill.html', form = form, title = title, menu=grillmenu)
+	return render_template(u'editgrill.html', form = form, title = title, menu=grillmenu)
 
 @app.route('/editinfothai', methods=['GET','POST'])
 @login_required
@@ -275,9 +275,9 @@ def edit_info_thai():
 			db.session.query(ThaiInformation).filter(ThaiInformation.id == 1).update({'thai_extra_rice':form.thai_extra_rice.data})
 			db.session.commit()
 
-		return redirect(url_for('edit_info_thai'))
+		return redirect(url_for(u'edit_info_thai'))
 
-	return render_template('editinfothai.html', title=title, form=form)
+	return render_template(u'editinfothai.html', title=title, form=form)
 
 @app.route('/editinfopizza', methods=['GET','POST'])
 @login_required
