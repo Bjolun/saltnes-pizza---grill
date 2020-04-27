@@ -220,6 +220,13 @@ def edit_thai():
 			db.session.query(ThaiMenu).filter(ThaiMenu.id == id).update({'price': form.price.data})
 			db.session.commit()
 
+		try:
+			if form.allergies_check.data[0]:
+				db.session.query(ThaiMenu).filter(ThaiMenu.id == id).update({'allergies': ' '.join(form.allergies.data)})
+				db.session.commit()
+		except:
+			pass
+
 		return redirect(url_for(u'edit_thai'))
 
 	return render_template(u'edit_thai.html', form = form, title = title, menu=thaimenu)
@@ -255,6 +262,13 @@ def edit_grill():
 		if form.price_large.data != "":
 			db.session.query(GrillMenu).filter(GrillMenu.id == id).update({'price_large': form.price_large.data})
 			db.session.commit()
+
+		try:
+			if form.allergies_check.data[0]:
+				db.session.query(GrillMenu).filter(GrillMenu.id == id).update({'allergies': ' '.join(form.allergies.data)})
+				db.session.commit()
+		except:
+			pass
 
 		return redirect(url_for(u'edit_grill'))
 
