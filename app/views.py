@@ -369,20 +369,20 @@ def login():
 
 	return render_template('login.html', form=form)
 
-@app.route('/signup', methods=['GET', 'POST'])
-def signup():
-
-	form = SignupForm()
-
-	if form.validate_on_submit():
-
-		brukernavn = form.brukernavn.data
-		passord = form.passord.data
-
-		new_user = Users(brukernavn=brukernavn, passord=passord)
-		db.session.add(new_user)
-		db.session.commit()
-
-		return redirect(url_for('home'))
-
-	return render_template('signup.html', form=form)
+# @app.route('/signup', methods=['GET', 'POST'])
+# def signup():
+#
+# 	form = SignupForm()
+#
+# 	if form.validate_on_submit():
+#
+# 		brukernavn = form.brukernavn.data
+# 		passord = form.passord.data
+#
+# 		new_user = Users(brukernavn=brukernavn, passord=passord)
+# 		db.session.add(new_user)
+# 		db.session.commit()
+#
+# 		return redirect(url_for('home'))
+#
+# 	return render_template('signup.html', form=form)
