@@ -27,6 +27,7 @@ body{
 }
 
 .masthead h1 {
+  margin-top: 100px;
   font-size: 3rem;
 }
 
@@ -107,7 +108,7 @@ body{
 
 @media screen and (max-width: 420px) {
   .table, .descrip_pizza, .descrip_extras {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
   }
 }
 

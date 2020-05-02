@@ -48,14 +48,14 @@
     <img src="{{url_for('static',filename='grill-icon.png')}}" alt="" class="mb-5 img-fluid">
     <!-- <h1 class="display-5 title-style">GRILLMENY</h1> -->
     <p align="left">Våre hamburgerer har følgende størrelser: 100g (Liten), 160g (Medium) og 250g (Stor)</p>
-    <table class="table" style="color: white;">
+    <table class="table" style="color: white; word-wrap: break-word; table-layout: fixed;">
       <thead>
         <tr align="left">
-          <th scope="col">Navn</th>
-          <th scope="col">Info</th>
-          <th scope="col">L</th>
-          <th scope="col">M</th>
-          <th scope="col">S</th>
+          <th scope="col" style="width: 20%;">Navn</th>
+          <th scope="col" style="width: 20%;">Info</th>
+          <th scope="col"  style="width: 10%;">L</th>
+          <th scope="col" style="width: 10%;">M</th>
+          <th scope="col" style="width: 10%;">S</th>
         </tr>
       </thead>
       <tbody>
@@ -63,9 +63,9 @@
         <tr align="left">
         <th scope="row"><strong>{{grill.id}}. {{grill.title}}</strong></th>
         <td>{{grill.description}}<br><span style="color:rgb(255,0,0)">{% if grill.allergies.split( ) %}Allergener: {% for i in grill.allergies.split( ) %}{{i}}{% if not loop.last%}, {%endif%}{% endfor %}{% endif %}</span></td>
-        <td>{{grill.price_small}}{% if grill.price_small %},-{% endif %}</td>
-        <td>{{grill.price_medium}}{% if grill.price_medium %},-{% endif %}</td>
-        <td>{{grill.price_large}}{% if grill.price_large %},-{% endif %}</td>
+        <td>{{grill.price_small}}{% if grill.price_small %}{% endif %}</td>
+        <td>{{grill.price_medium}}{% if grill.price_medium %}{% endif %}</td>
+        <td>{{grill.price_large}}{% if grill.price_large %}{% endif %}</td>
         </tr>
         {%endfor%}
       </tbody>
