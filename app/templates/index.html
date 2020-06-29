@@ -21,7 +21,7 @@
         <tr align="left">
         <th scope="row"><strong>{{pizza.id}}. {{pizza.title}}</strong></th>
         <td>{{pizza.description}}<br><span style="color:rgb(255,0,0)">Allergener: {% for i in pizza.allergies.split( ) %}{{i}}{% if not loop.last%}, {%endif%}{% endfor %}</span></td>
-        <td>{{pizza.price}},-</td>
+        <td>{{pizza.price}}</td>
         </tr>
         {%endfor%}
       </tbody>
@@ -31,12 +31,12 @@
       <div class="row">
         <div class="col-6">
           {% for item in pizzainformation %}
-          <p class="descrip_extras" align="right"><strong>Rød saus: {{item.price_red_sauce}},-</strong></p>
-          <p class="descrip_extras" align="right"><strong>Hvit saus: {{item.price_white_sauce}},-</strong></p>
+          <p class="descrip_extras" align="right"><strong>Rød saus: {{item.price_red_sauce}}</strong></p>
+          <p class="descrip_extras" align="right"><strong>Hvit saus: {{item.price_white_sauce}}</strong></p>
         </div>
         <div class="col-6">
-          <p class="descrip_extras" align="left"><strong>Ekstra kjøtt: {{item.pizza_extra_meat}},-</strong></p>
-          <p class="descrip_extras" align="left"><strong>Ekstra ost: {{item.pizza_extra_cheese}},-</strong></p>
+          <p class="descrip_extras" align="left"><strong>Ekstra kjøtt: {{item.pizza_extra_meat}}</strong></p>
+          <p class="descrip_extras" align="left"><strong>Ekstra ost: {{item.pizza_extra_cheese}}</strong></p>
           {% endfor %}
         </div>
       </div>
@@ -87,6 +87,15 @@
         </tr>
       </thead>
       <tbody>
+        {%for grill in grilltallerken%}
+        <tr align="left">
+        <th scope="row"><strong>{{grill.id}}. {{grill.title}}</strong></th>
+        <td>{{grill.description}}<br><span style="color:rgb(255,0,0)">{% if grill.allergies.split( ) %}Allergener: {% for i in grill.allergies.split( ) %}{{i}}{% if not loop.last%}, {%endif%}{% endfor %}{% endif %}</span></td>
+        <td>{{grill.price_small}}{% if grill.price_small %}{% endif %}</td>
+        <td>{{grill.price_medium}}{% if grill.price_medium %}{% endif %}</td>
+        <td>{{grill.price_large}}{% if grill.price_large %}{% endif %}</td>
+        </tr>
+        {%endfor%}
       </tbody>
     </table>
   </div>
@@ -108,7 +117,7 @@
         <tr align="left">
         <th scope="row"><strong>{{thai.id}}. {{thai.title}}</strong></th>
         <td>{{thai.description}}<br><span style="color:rgb(255,0,0)">Allergener: {% for i in thai.allergies.split( ) %}{{i}}{% if not loop.last%}, {%endif%}{% endfor %}</span></td>
-        <td>{{thai.price}},-</td>
+        <td>{{thai.price}}</td>
         </tr>
         {%endfor%}
       </tbody>

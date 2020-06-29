@@ -35,6 +35,17 @@ class AddGrill(FlaskForm):
     price_large = StringField(u'Pris på grillmaten (stor)')
     submit = SubmitField(u'Legg til grillmat')
 
+class AddGrillTallerken(FlaskForm):
+
+    id = IntegerField(u'Hvilken id har matretten? ',[validators.Required()])
+    name = StringField(u'Grilltallerken tittel: ',[validators.Required()])
+    description = StringField(u'Hva inneholder Grilltallerkenen? ',[validators.Required()])
+    allergies = SelectMultipleField(u'Velg allergener for maten',choices=allergies_list,option_widget=widgets.CheckboxInput(),widget=widgets.ListWidget(prefix_label=False))
+    price_small = StringField(u'Pris på grilltallerken (liten): ')
+    price_medium = StringField(u'Pris på grilltallerken (medium): ')
+    price_large = StringField(u'Pris på grilltallerken (store): ')
+    submit = SubmitField(u'Legg til grilltallerkenen')
+
 class DeleteFood(FlaskForm):
 
     idDel = IntegerField(u'Id-Nummer på retten du vil slette.',[validators.Required()])
@@ -53,6 +64,18 @@ class EditPizzaAndThai(FlaskForm):
 
 
 class EditGrill(FlaskForm):
+
+    id = IntegerField(u'Hvilken rett vil du endre på? Id-nummer(Obligatorisk)', [validators.Required()])
+    name = StringField(u'Nytt navn')
+    description = StringField(u'Endre beskrivelse')
+    price_small = StringField(u'Endre pris på liten rett (Bruk mellomrom for å fjerne nåværende pris)')
+    price_medium = StringField(u'Endre pris på medium rett (Bruk mellomrom for å fjerne nåværende pris)')
+    price_large = StringField(u'Endre pris på stor rett (Bruk mellomrom for å fjerne nåværende pris)')
+    allergies_check = SelectMultipleField(u'Allergi-sjekk', choices=[(u"yes",u'Huk av for å endre på allergier')],option_widget=widgets.CheckboxInput(),widget=widgets.ListWidget(prefix_label=False))
+    allergies = SelectMultipleField(u'Velg allergener for maten',choices=allergies_list,option_widget=widgets.CheckboxInput(),widget=widgets.ListWidget(prefix_label=False))
+    submit = SubmitField(u'Lagre endringer')
+
+class EditGrillTallerken(FlaskForm):
 
     id = IntegerField(u'Hvilken rett vil du endre på? Id-nummer(Obligatorisk)', [validators.Required()])
     name = StringField(u'Nytt navn')

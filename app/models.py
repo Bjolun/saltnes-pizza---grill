@@ -64,6 +64,27 @@ class GrillMenu(db.Model):
         self.price_medium = price_medium
         self.price_large = price_large
 
+class GrillTallerken(db.Model):
+
+    __tablename__ = u"grilltallerken"
+
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String, unique=False)
+    description = db.Column(db.String, unique=False)
+    allergies = db.Column(db.String)
+    price_small = db.Column(db.String)
+    price_medium = db.Column(db.String)
+    price_large = db.Column(db.String)
+
+    def __init__(self, id, title, description, allergies, price_small, price_medium, price_large):
+        self.id = id
+        self.title = title
+        self.description = description
+        self.allergies = allergies
+        self.price_small = price_small
+        self.price_medium = price_medium
+        self.price_large = price_large
+
 class Users(db.Model,UserMixin):
 
     __tablename__ = u"brukere"

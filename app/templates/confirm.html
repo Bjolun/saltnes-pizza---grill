@@ -30,19 +30,24 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-4" align="center">
+        <div class="col-3" align="center">
           <form class="form-group" action="{{url_for('addpizza')}}">
             <input type="submit" class="btn btn-warning" value="Legg til pizza">
           </form>
         </div>
-        <div class="col-4" align="center">
+        <div class="col-3" align="center">
           <form class="form-group" action="{{url_for('addthai')}}">
             <input type="submit" class="btn btn-warning" value="Legg til thaimat">
           </form>
         </div>
-        <div class="col-4" align="center">
+        <div class="col-3" align="center">
           <form class="form-group" action="{{url_for('addgrill')}}">
             <input type="submit" class="btn btn-warning" value="Legg til grillmat">
+          </form>
+        </div>
+        <div class="col-3" align="center">
+          <form class="form-group" action="{{url_for('addgrilltallerken')}}">
+            <input type="submit" class="btn btn-warning" value="Legg til grilltallerken">
           </form>
         </div>
       </div>
@@ -50,23 +55,28 @@
       <div class="row mt-5">
         <div class="col-12" align="center">
           <hr>
-          <h2 class="text-dark font-weight-bold mb-5">Endre rett på menyen</h2>
+          <h2 class="text-dark font-weight-bold mb-5">Endre på menyen</h2>
         </div>
       </div>
       <div class="row">
-        <div class="col-4" align="center">
+        <div class="col-3" align="center">
           <form class="form-group" action="{{url_for('edit_pizza')}}">
             <input type="submit" class="btn btn-warning" value="Endre på en pizza">
           </form>
         </div>
-        <div class="col-4" align="center">
+        <div class="col-3" align="center">
           <form class="form-group" action="{{url_for('edit_thai')}}">
             <input type="submit" class="btn btn-warning" value="Endre på en thaimat">
           </form>
         </div>
-        <div class="col-4" align="center">
+        <div class="col-3" align="center">
           <form class="form-group" action="{{url_for('edit_grill')}}">
             <input type="submit" class="btn btn-warning" value="Endre på en grillmat">
+          </form>
+        </div>
+        <div class="col-3" align="center">
+          <form class="form-group" action="{{url_for('edit_grilltallerken')}}">
+            <input type="submit" class="btn btn-warning" value="Endre på en grilltallerken">
           </form>
         </div>
       </div>
@@ -78,22 +88,28 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-4" align="center">
+        <div class="col-3" align="center">
           <form class="form-group" action="{{url_for('delete_pizza')}}">
             <input type="submit" class="btn btn-warning" value="Slett en pizza">
           </form>
         </div>
-        <div class="col-4" align="center">
+        <div class="col-3" align="center">
           <form class="form-group" action="{{url_for('delete_thai')}}">
             <input type="submit" class="btn btn-warning" value="Slett thaimat">
           </form>
         </div>
-        <div class="col-4" align="center">
+        <div class="col-3" align="center">
           <form class="form-group" action="{{url_for('delete_grill')}}">
             <input type="submit" class="btn btn-warning" value="Slett grillmat">
           </form>
         </div>
+        <div class="col-3" align="center">
+          <form class="form-group" action="{{url_for('delete_grilltallerken')}}">
+            <input type="submit" class="btn btn-warning" value="Slett grilltallerken">
+          </form>
+        </div>
       </div>
+    </div>
       <hr>
       <div class="row mt-5">
         <div class="col-12" align="center">

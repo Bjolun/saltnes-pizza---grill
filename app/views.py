@@ -2,19 +2,20 @@
 # -*- coding: utf-8 -*-
 from app import app, db
 from flask import Flask, render_template, flash, session, redirect, url_for, abort, request
-from app.models import PizzaMenu, ThaiMenu, GrillMenu, Users, PizzaInformation, ThaiInformation
-from app.forms import AddPizza, AddThai, AddGrill, DeleteFood, EditPizzaAndThai, EditGrill, LoginForm, SignupForm, InformationPizza, InformationThai
+from app.models import PizzaMenu, ThaiMenu, GrillMenu, GrillTallerken, Users, PizzaInformation, ThaiInformation
+from app.forms import AddPizza, AddThai, AddGrill, AddGrillTallerken, DeleteFood, EditPizzaAndThai, EditGrill, EditGrillTallerken, LoginForm, SignupForm, InformationPizza, InformationThai
 from flask_login import login_user, login_required, logout_user
 
 @app.route('/')
 def home():
 	pizzamenu = PizzaMenu.query.all()
 	grillmenu = GrillMenu.query.all()
+	grilltallerken = GrillTallerken.query.all()
 	thaimenu = ThaiMenu.query.all()
 	pizzainformation = PizzaInformation.query.all()
 	thaiinformation = ThaiInformation.query.all()
 
-	return render_template("index.html", pizzamenu = pizzamenu, grillmenu = grillmenu, thaimenu = thaimenu, pizzainformation = pizzainformation, thaiinformation = thaiinformation)
+	return render_template("index.html", pizzamenu = pizzamenu, grillmenu = grillmenu, grilltallerken = grilltallerken, thaimenu = thaimenu, pizzainformation = pizzainformation, thaiinformation = thaiinformation)
 
 @app.route('/addpizza',methods=['GET','POST'])
 @login_required
@@ -91,6 +92,32 @@ def addgrill():
 
 	return render_template('forms.html', form=form, title=title, menu=grillmenu)
 
+@app.route('/addgrilltallerken',methods=['GET','POST'])
+@login_required
+def addgrilltallerken():
+
+	title = u"Legg til grilltallerken"
+
+	form = AddGrillTallerken()
+	grilltallerken = GrillTallerken.query.all()
+
+	if form.validate_on_submit():
+
+		id = int(form.id.data)
+		name = form.name.data
+		description = form.description.data
+		allergies = ' '.join(form.allergies.data)
+		price_small = form.price_small.data
+		price_medium = form.price_medium.data
+		price_large = form.price_large.data
+		new_food = GrillTallerken(id=id,title=name,description=description,allergies=allergies,price_small=price_small,price_medium=price_medium,price_large=price_large)
+		db.session.add(new_food)
+		db.session.commit()
+
+		return redirect(url_for('addgrilltallerken'))
+
+	return render_template('forms.html', form=form, title=title, menu=grilltallerken)
+
 @app.route('/add_confirm', methods=['GET','POST'])
 @login_required
 def add_confirm():
@@ -158,6 +185,27 @@ def delete_grill():
 		return redirect(url_for('delete_grill'))
 
 	return render_template('delete.html', form=form, title=title, menu=grillmenu)
+
+@app.route('/deletegrilltallerken',methods=['GET','POST'])
+@login_required
+def delete_grilltallerken():
+
+	title = u"Slett Grilltallerken"
+
+	form = DeleteFood()
+	grilltallerken = GrillTallerken.query.all()
+
+
+	if form.validate_on_submit():
+		id = form.idDel.data
+		delete = GrillTallerken.query.get(id)
+
+		db.session.delete(delete)
+		db.session.commit()
+
+		return redirect(url_for('delete_grilltallerken'))
+
+	return render_template('delete.html', form=form, title=title, menu=grilltallerken)
 
 @app.route('/editpizza', methods=['GET', 'POST'])
 @login_required
@@ -273,6 +321,49 @@ def edit_grill():
 		return redirect(url_for(u'edit_grill'))
 
 	return render_template(u'editgrill.html', form = form, title = title, menu=grillmenu)
+
+@app.route('/edit_grilltallerken', methods=['GET', 'POST'])
+@login_required
+def edit_grilltallerken():
+
+	title = u'Endre grilltallerken'
+
+	form = EditGrillTallerken()
+	grillmenu = GrillTallerken.query.all()
+
+	if form.validate_on_submit():
+		id = form.id.data
+
+		if form.name.data != "":
+			db.session.query(GrillMenu).filter(GrillMenu.id == id).update({'title': form.name.data})
+			db.session.commit()
+
+		if form.description.data != "":
+			db.session.query(GrillMenu).filter(GrillMenu.id == id).update({'description': form.description.data})
+			db.session.commit()
+
+		if form.price_small.data != "":
+			db.session.query(GrillMenu).filter(GrillMenu.id == id).update({'price_small': form.price_small.data})
+			db.session.commit()
+
+		if form.price_medium.data != "":
+			db.session.query(GrillMenu).filter(GrillMenu.id == id).update({'price_medium': form.price_medium.data})
+			db.session.commit()
+
+		if form.price_large.data != "":
+			db.session.query(GrillMenu).filter(GrillMenu.id == id).update({'price_large': form.price_large.data})
+			db.session.commit()
+
+		try:
+			if form.allergies_check.data[0]:
+				db.session.query(GrillMenu).filter(GrillMenu.id == id).update({'allergies': ' '.join(form.allergies.data)})
+				db.session.commit()
+		except:
+			pass
+
+		return redirect(url_for(u'edit_grilltallerken'))
+
+	return render_template(u'editgrilltallerken.html', form = form, title = title, menu=grillmenu)
 
 @app.route('/editinfothai', methods=['GET','POST'])
 @login_required
