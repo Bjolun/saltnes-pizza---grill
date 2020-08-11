@@ -11,20 +11,32 @@
     <link rel="stylesheet" href="{{url_for('static', filename ='css/animation.css')}}" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="/static/icon/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/static/icon/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="{{url_for('static',filename='icon/favicon-16x16.png')}}" sizes="16x16" />
+    <link rel="icon" type="image/png" href="{{url_for('static',filename='icon/favicon-32x32.png')}}" sizes="32x32" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
+    <style>
+        .masthead {
+        height: 100vh;
+        min-height: 500px;
+        background: linear-gradient(rgba(40,40,40,0) 50%,rgba(20,20,20,1)),
+        url("{{url_for('static', filename="header-pizza.jpg")}}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        }
+    </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#"> <img src="/static/logo.png" alt="saltnes-grill logo" id="logobrand"></a>
+        <a class="navbar-brand" href="#"> <img src="{{url_for('static', filename="logo.png")}}" alt="saltnes-grill logo" id="logobrand"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <span class="text-dark" style="float:left;">Telefon: <strong>69282383</strong></span>
+        <span class="text-dark" style="float:left;">Tlf: <strong>69282383</strong></span>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
@@ -32,6 +44,9 @@
             </li>
             <li class="nav-item">
               <a data-scroll class="nav-link" href="#grill">Grill</a>
+            </li>
+            <li class="nav-item">
+              <a data-scroll class="nav-link" href="#grillmenyer">Grilltallerken</a>
             </li>
             <li class="nav-item">
               <a data-scroll class="nav-link" href="#thai">Thai</a>
@@ -57,11 +72,10 @@
           <div class="col-12 text-center">
             <br>
             <br>
-            <h1 class="font-weight-light mt-5">Velkommen til Saltnes Grill & Pizza</h1>
-            <hr style="border-color:white;">
+            <h1 class="font-weight-light mt-5">Velkommen til <br>Saltnes Grill & Pizza</h1>
           </div>
           <div class="col-12 text-center">
-            <a href="#pizza" class="fadeIn"><img src="{{url_for('static',filename='down-arrow.png')}}" alt=""></a>
+            <a href="#pizza" class="fadeIn downArrow"><img src="{{url_for('static',filename='down-arrow.png')}}" alt=""></a>
         </div>
       </div>
     </header>

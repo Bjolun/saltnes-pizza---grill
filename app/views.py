@@ -335,28 +335,28 @@ def edit_grilltallerken():
 		id = form.id.data
 
 		if form.name.data != "":
-			db.session.query(GrillMenu).filter(GrillMenu.id == id).update({'title': form.name.data})
+			db.session.query(GrillTallerken).filter(GrillTallerken.id == id).update({'title': form.name.data})
 			db.session.commit()
 
 		if form.description.data != "":
-			db.session.query(GrillMenu).filter(GrillMenu.id == id).update({'description': form.description.data})
+			db.session.query(GrillTallerken).filter(GrillTallerken.id == id).update({'description': form.description.data})
 			db.session.commit()
 
 		if form.price_small.data != "":
-			db.session.query(GrillMenu).filter(GrillMenu.id == id).update({'price_small': form.price_small.data})
+			db.session.query(GrillTallerken).filter(GrillTallerken.id == id).update({'price_small': form.price_small.data})
 			db.session.commit()
 
 		if form.price_medium.data != "":
-			db.session.query(GrillMenu).filter(GrillMenu.id == id).update({'price_medium': form.price_medium.data})
+			db.session.query(GrillTallerken).filter(GrillTallerken.id == id).update({'price_medium': form.price_medium.data})
 			db.session.commit()
 
 		if form.price_large.data != "":
-			db.session.query(GrillMenu).filter(GrillMenu.id == id).update({'price_large': form.price_large.data})
+			db.session.query(GrillTallerken).filter(GrillTallerken.id == id).update({'price_large': form.price_large.data})
 			db.session.commit()
 
 		try:
 			if form.allergies_check.data[0]:
-				db.session.query(GrillMenu).filter(GrillMenu.id == id).update({'allergies': ' '.join(form.allergies.data)})
+				db.session.query(GrillTallerken).filter(GrillTallerken.id == id).update({'allergies': ' '.join(form.allergies.data)})
 				db.session.commit()
 		except:
 			pass

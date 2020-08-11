@@ -67,11 +67,28 @@
       <hr>
       <div class="row">
         <div class="col-12">
-          <h3 class="text-dark mb-3">Nåværende meny:</h3>
+          <h3 class="text-dark">Nåværende meny:</h3>
           {% for item in menu %}
-          <p class="text-dark"><strong>{{item.id}}: {{item.title}}</strong><span class="ml-2"><em>{{item.price}},-</em></span><br>
-          {{item.description}}<br>
-          Allergener: {{item.allergies}}</p>
+          <h5 class="text-dark mt-5"><strong>{{item.id}}: {{item.title}}</strong></h5><p class="text-dark"><span><em>
+            {% if item.price_small %}
+          </em><strong>Liten: </strong><em>{{item.price_small}},-
+            {% endif %}
+            {% if item.price_medium %}
+          </em><strong>Medium: </strong><em>{{item.price_medium}},-
+            {% endif %}
+            {% if item.price_large %}
+          </em><strong>Stor: </strong><em>{{item.price_large}},-
+            {% endif %}
+            {% if item.price %}
+          </em><strong>Pris: </strong><em>{{item.price}},-
+            {% endif %}
+          </em></span><br>
+          {% if item.description[0] == " " %}
+          <strong>Beskrivelse: </strong><em>(Dette produktet har ingen beskrivelse)</em><br>
+          {% else %}
+          <strong>Beskrivelse: </strong>{{item.description}}<br>
+          {% endif %}
+          <strong>Allergener: </strong>{{item.allergies}}</p>
           {% endfor %}
         </div>
       </div>
