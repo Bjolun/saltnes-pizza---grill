@@ -47,7 +47,7 @@ def addpizza():
 def addthai():
 
 	thaimenu = ThaiMenu.query.all()
-	title = u"Legg til thaimat"
+	title = u"Legg til thaimat "
 
 	form = AddThai()
 
